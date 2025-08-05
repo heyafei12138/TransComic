@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		001A041078AA3A96C2F06FFD /* Pods_comic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4645A07CCF7C9827418DC1 /* Pods_comic.framework */; };
+		36CEEAD6CBC8C17C9BA0397F /* Pods_TransComic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716EA474FD930257247598E8 /* Pods_TransComic.framework */; };
+		BDF423AE2E4209CE00C04BFD /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDF423AD2E4209CE00C04BFD /* Intents.framework */; };
+		BDF423B52E4209CE00C04BFD /* comic.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BDF423AB2E4209CE00C04BFD /* comic.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BDF423BE2E420A2B00C04BFD /* Trans.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF423BD2E420A2B00C04BFD /* Trans.swift */; };
+		BDF423BF2E420A2B00C04BFD /* Trans.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF423BD2E420A2B00C04BFD /* Trans.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDF423B32E4209CE00C04BFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDF423872E4209C100C04BFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF423AA2E4209CE00C04BFD;
+			remoteInfo = comic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDF423BA2E4209CE00C04BFD /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BDF423B52E4209CE00C04BFD /* comic.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		26ECBFFBFE6DC416841791DD /* Pods-TransComic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransComic.release.xcconfig"; path = "Target Support Files/Pods-TransComic/Pods-TransComic.release.xcconfig"; sourceTree = "<group>"; };
+		3302152E83C09E8BA0CC1A1A /* Pods-TransComic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransComic.debug.xcconfig"; path = "Target Support Files/Pods-TransComic/Pods-TransComic.debug.xcconfig"; sourceTree = "<group>"; };
+		3A4645A07CCF7C9827418DC1 /* Pods_comic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_comic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		716EA474FD930257247598E8 /* Pods_TransComic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransComic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7692D79E8847058065C925A6 /* Pods-comic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comic.release.xcconfig"; path = "Target Support Files/Pods-comic/Pods-comic.release.xcconfig"; sourceTree = "<group>"; };
+		BDF4238F2E4209C100C04BFD /* TransComic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransComic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF423AB2E4209CE00C04BFD /* comic.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = comic.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDF423AD2E4209CE00C04BFD /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		BDF423BD2E420A2B00C04BFD /* Trans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Trans.swift; path = comic/Trans.swift; sourceTree = "<group>"; };
+		C0FA8BBC889F6ECB6117DF8E /* Pods-comic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-comic.debug.xcconfig"; path = "Target Support Files/Pods-comic/Pods-comic.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BDF423A12E4209C200C04BFD /* Exceptions for "TransComic" folder in "TransComic" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BDF4238E2E4209C100C04BFD /* TransComic */;
+		};
+		BDF423B92E4209CE00C04BFD /* Exceptions for "comic" folder in "comic" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BDF423AA2E4209CE00C04BFD /* comic */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BDF423912E4209C100C04BFD /* TransComic */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BDF423A12E4209C200C04BFD /* Exceptions for "TransComic" folder in "TransComic" target */,
+			);
+			path = TransComic;
+			sourceTree = "<group>";
+		};
+		BDF423AF2E4209CE00C04BFD /* comic */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BDF423B92E4209CE00C04BFD /* Exceptions for "comic" folder in "comic" target */,
+			);
+			path = comic;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDF4238C2E4209C100C04BFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36CEEAD6CBC8C17C9BA0397F /* Pods_TransComic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF423A82E4209CE00C04BFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF423AE2E4209CE00C04BFD /* Intents.framework in Frameworks */,
+				001A041078AA3A96C2F06FFD /* Pods_comic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDF423862E4209C100C04BFD = {
+			isa = PBXGroup;
+			children = (
+				BDF423BD2E420A2B00C04BFD /* Trans.swift */,
+				BDF423912E4209C100C04BFD /* TransComic */,
+				BDF423AF2E4209CE00C04BFD /* comic */,
+				BDF423AC2E4209CE00C04BFD /* Frameworks */,
+				BDF423902E4209C100C04BFD /* Products */,
+				CD2A3912040F8ED76DC3F368 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		BDF423902E4209C100C04BFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDF4238F2E4209C100C04BFD /* TransComic.app */,
+				BDF423AB2E4209CE00C04BFD /* comic.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDF423AC2E4209CE00C04BFD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDF423AD2E4209CE00C04BFD /* Intents.framework */,
+				716EA474FD930257247598E8 /* Pods_TransComic.framework */,
+				3A4645A07CCF7C9827418DC1 /* Pods_comic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD2A3912040F8ED76DC3F368 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3302152E83C09E8BA0CC1A1A /* Pods-TransComic.debug.xcconfig */,
+				26ECBFFBFE6DC416841791DD /* Pods-TransComic.release.xcconfig */,
+				C0FA8BBC889F6ECB6117DF8E /* Pods-comic.debug.xcconfig */,
+				7692D79E8847058065C925A6 /* Pods-comic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDF4238E2E4209C100C04BFD /* TransComic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF423A22E4209C200C04BFD /* Build configuration list for PBXNativeTarget "TransComic" */;
+			buildPhases = (
+				F71C000B7797476DFFE26196 /* [CP] Check Pods Manifest.lock */,
+				BDF4238B2E4209C100C04BFD /* Sources */,
+				BDF4238C2E4209C100C04BFD /* Frameworks */,
+				BDF4238D2E4209C100C04BFD /* Resources */,
+				BDF423BA2E4209CE00C04BFD /* Embed Foundation Extensions */,
+				2725F4E3482406BE748E48B1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDF423B42E4209CE00C04BFD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BDF423912E4209C100C04BFD /* TransComic */,
+			);
+			name = TransComic;
+			productName = TransComic;
+			productReference = BDF4238F2E4209C100C04BFD /* TransComic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDF423AA2E4209CE00C04BFD /* comic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDF423B62E4209CE00C04BFD /* Build configuration list for PBXNativeTarget "comic" */;
+			buildPhases = (
+				6EAAAC429E4465813E84B147 /* [CP] Check Pods Manifest.lock */,
+				BDF423A72E4209CE00C04BFD /* Sources */,
+				BDF423A82E4209CE00C04BFD /* Frameworks */,
+				BDF423A92E4209CE00C04BFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BDF423AF2E4209CE00C04BFD /* comic */,
+			);
+			name = comic;
+			productName = comic;
+			productReference = BDF423AB2E4209CE00C04BFD /* comic.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDF423872E4209C100C04BFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					BDF4238E2E4209C100C04BFD = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					BDF423AA2E4209CE00C04BFD = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = BDF4238A2E4209C100C04BFD /* Build configuration list for PBXProject "TransComic" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDF423862E4209C100C04BFD;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BDF423902E4209C100C04BFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDF4238E2E4209C100C04BFD /* TransComic */,
+				BDF423AA2E4209CE00C04BFD /* comic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDF4238D2E4209C100C04BFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF423A92E4209CE00C04BFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2725F4E3482406BE748E48B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransComic/Pods-TransComic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TransComic/Pods-TransComic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TransComic/Pods-TransComic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EAAAC429E4465813E84B147 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-comic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F71C000B7797476DFFE26196 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TransComic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDF4238B2E4209C100C04BFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF423BE2E420A2B00C04BFD /* Trans.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDF423A72E4209CE00C04BFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDF423BF2E420A2B00C04BFD /* Trans.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDF423B42E4209CE00C04BFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF423AA2E4209CE00C04BFD /* comic */;
+			targetProxy = BDF423B32E4209CE00C04BFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BDF423A32E4209C200C04BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3302152E83C09E8BA0CC1A1A /* Pods-TransComic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3R4AW678R7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransComic/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Animation.TransComic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BDF423A42E4209C200C04BFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26ECBFFBFE6DC416841791DD /* Pods-TransComic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3R4AW678R7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransComic/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Animation.TransComic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BDF423A52E4209C200C04BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDF423A62E4209C200C04BFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDF423B72E4209CE00C04BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0FA8BBC889F6ECB6117DF8E /* Pods-comic.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3R4AW678R7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = comic/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = comic;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Animation.TransComic.comic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BDF423B82E4209CE00C04BFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7692D79E8847058065C925A6 /* Pods-comic.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3R4AW678R7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = comic/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = comic;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Animation.TransComic.comic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDF4238A2E4209C100C04BFD /* Build configuration list for PBXProject "TransComic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF423A52E4209C200C04BFD /* Debug */,
+				BDF423A62E4209C200C04BFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF423A22E4209C200C04BFD /* Build configuration list for PBXNativeTarget "TransComic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF423A32E4209C200C04BFD /* Debug */,
+				BDF423A42E4209C200C04BFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDF423B62E4209CE00C04BFD /* Build configuration list for PBXNativeTarget "comic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDF423B72E4209CE00C04BFD /* Debug */,
+				BDF423B82E4209CE00C04BFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDF423872E4209C100C04BFD /* Project object */;
+}

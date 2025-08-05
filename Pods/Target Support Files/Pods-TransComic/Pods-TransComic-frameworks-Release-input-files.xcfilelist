@@ -1,0 +1,9 @@
+${PODS_ROOT}/Target Support Files/Pods-TransComic/Pods-TransComic-frameworks.sh
+${BUILT_PRODUCTS_DIR}/JKSwiftExtension/JKSwiftExtension.framework
+${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework
+${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework
+${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework
+${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
