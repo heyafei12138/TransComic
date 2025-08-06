@@ -55,6 +55,16 @@ class TCWebTransExample {
             "historyCount": TCWebTransModule.getHistoryCount()
         ]
     }
+    
+    /// 示例：检查网址是否已收藏
+    static func isWebsiteFavorited(url: String) -> Bool {
+        return TCWebsiteManager.shared.isFavoriteWebsiteByURL(url)
+    }
+    
+    /// 示例：清理数据
+    static func cleanData() {
+        TCWebTransModule.cleanDuplicateHistory()
+    }
 }
 
 /// 扩展：为现有控制器添加网页翻译功能

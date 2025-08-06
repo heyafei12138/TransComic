@@ -58,11 +58,11 @@ class TCWebToolbarView: UIView {
     }()
     
     private lazy var buttonStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [backButton, forwardButton, multiWindowButton])
+        let stackView = UIStackView(arrangedSubviews: [backButton, forwardButton])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
-        stackView.spacing = 40
+        stackView.spacing = 100
         return stackView
     }()
     
@@ -91,7 +91,8 @@ class TCWebToolbarView: UIView {
         }
         
         buttonStackView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(6)
             make.height.equalTo(44)
         }
         
@@ -103,9 +104,9 @@ class TCWebToolbarView: UIView {
             make.size.equalTo(CGSize(width: 44, height: 44))
         }
         
-        multiWindowButton.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 44, height: 44))
-        }
+//        multiWindowButton.snp.makeConstraints { make in
+//            make.size.equalTo(CGSize(width: 44, height: 44))
+//        }
     }
     
     // MARK: - Public Methods

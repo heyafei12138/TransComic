@@ -89,7 +89,7 @@ class TCWebDetailViewController: BaseViewController {
         
         toolbarView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(60 + kBottomSafeHeight)
+            make.height.equalTo(50 + kBottomSafeHeight)
         }
         
         loadingView.snp.makeConstraints { make in
@@ -132,9 +132,12 @@ class TCWebDetailViewController: BaseViewController {
             // 创建网站模型
             currentWebsite = TCWebsiteModel(name: url.host ?? "未知网站", url: websiteURL, icon: "🌐")
             
-            // 添加到历史记录
+            // 检查收藏状态
+            checkFavoriteStatus()
+            
+            // 添加到历史记录（使用改进的去重方法）
             if let website = currentWebsite {
-                TCWebsiteManager.shared.addHistoryWebsite(website)
+                TCWebsiteManager.shared.addHistoryWebsiteWithUpdate(website)
             }
         }
     }
@@ -145,10 +148,22 @@ class TCWebDetailViewController: BaseViewController {
         updateFavoriteButton()
     }
     
+    private func checkFavoriteStatusByURL() {
+        // 通过URL检查收藏状态，用于网页加载完成后更新
+        isFavorite = TCWebsiteManager.shared.isFavoriteWebsiteByURL(websiteURL)
+        updateFavoriteButton()
+        
+        // 调试信息
+        print("🔍 检查收藏状态: \(websiteURL) - \(isFavorite ? "已收藏" : "未收藏")")
+    }
+    
     private func updateFavoriteButton() {
         let title = isFavorite ? "已收藏" : "收藏"
         let color = isFavorite ? UIColor.gray : mainColor
         customNav.setRightButton(title: title, titleColor: color)
+        
+        // 调试信息
+        print("🔄 更新收藏按钮: \(title)")
     }
     
     // MARK: - Actions
@@ -203,8 +218,15 @@ extension TCWebDetailViewController: WKNavigationDelegate {
         
         // 更新当前网站信息
         if let url = webView.url?.absoluteString {
-            currentWebsite = TCWebsiteModel(name: webView.title ?? webView.url?.host ?? "未知网站", url: url, icon: "🌐")
+            let updatedWebsite = TCWebsiteModel(name: webView.title ?? webView.url?.host ?? "未知网站", url: url, icon: "🌐")
+            currentWebsite = updatedWebsite
+            
+            // 更新历史记录（使用正确的网站标题）
+            TCWebsiteManager.shared.addHistoryWebsiteWithUpdate(updatedWebsite)
         }
+        
+        // 重新检查收藏状态（网页加载完成后）
+        checkFavoriteStatusByURL()
         
         // 更新工具栏状态
         toolbarView.updateNavigationState(canGoBack: webView.canGoBack, canGoForward: webView.canGoForward)

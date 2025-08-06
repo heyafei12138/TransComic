@@ -28,6 +28,11 @@ class TCWebTransModule {
         TCWebsiteManager.shared.clearHistoryWebsites()
     }
     
+    /// 清理重复的历史记录
+    static func cleanDuplicateHistory() {
+        TCWebsiteManager.shared.cleanDuplicateHistoryWebsites()
+    }
+    
     /// 获取收藏网址数量
     static func getFavoriteCount() -> Int {
         return TCWebsiteManager.shared.getFavoriteWebsites().count

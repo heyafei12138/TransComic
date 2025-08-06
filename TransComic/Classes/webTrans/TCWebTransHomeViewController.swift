@@ -131,6 +131,9 @@ class TCWebTransHomeViewController: BaseViewController {
     }
     
     private func loadData() {
+        // 清理重复的历史记录
+        TCWebsiteManager.shared.cleanDuplicateHistoryWebsites()
+        
         // 加载收藏网址
         favoriteWebsites = TCWebsiteManager.shared.getFavoriteWebsites()
         
