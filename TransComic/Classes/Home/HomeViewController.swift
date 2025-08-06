@@ -92,6 +92,10 @@ class HomeViewController: BaseViewController {
             make.left.right.equalToSuperview().inset(16)
             make.height.equalTo(160)
         }
+        card2.onTap = { [weak self] in
+            guard let self = self else { return }
+            WebTranTapped()
+        }
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -103,6 +107,8 @@ class HomeViewController: BaseViewController {
        
     }
     @objc private func WebTranTapped() {
+        let webTransVC = TCWebTransModule.getHomeViewController()
+        pushViewCon(webTransVC)
        
     }
     private func setupHistory() {
