@@ -42,4 +42,9 @@ class TCWebTransModule {
     static func getHistoryCount() -> Int {
         return TCWebsiteManager.shared.getHistoryWebsites().count
     }
+    
+    /// 检查是否支持截屏功能
+    static func isScreenshotSupported() -> Bool {
+        return true
+    }
 } 

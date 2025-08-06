@@ -49,6 +49,18 @@ class TCWebDetailViewController: BaseViewController {
         return indicator
     }()
     
+    private lazy var floatingScreenshotButton: TCFloatingScreenshotButton = {
+        let button = TCFloatingScreenshotButton()
+        button.delegate = self
+        return button
+    }()
+    
+    private lazy var screenshotManager: TCScreenshotManager = {
+        let manager = TCScreenshotManager(webView: webView)
+        manager.delegate = self
+        return manager
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +81,7 @@ class TCWebDetailViewController: BaseViewController {
         view.addSubview(progressView)
         view.addSubview(toolbarView)
         view.addSubview(loadingView)
+        view.addSubview(floatingScreenshotButton)
         
         setupConstraints()
         setupNavigationBar()
@@ -96,6 +109,12 @@ class TCWebDetailViewController: BaseViewController {
             make.center.equalToSuperview()
             make.size.equalTo(CGSize(width: 50, height: 50))
         }
+        
+        floatingScreenshotButton.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-20)
+            make.bottom.equalTo(toolbarView.snp.top).offset(-20)
+            make.size.equalTo(CGSize(width: 56, height: 56))
+        }
     }
     
     private func setupNavigationBar() {
@@ -106,6 +125,9 @@ class TCWebDetailViewController: BaseViewController {
         
         // 添加进度观察
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        
+        // 添加滚动监听
+        webView.scrollView.delegate = self
     }
     
     private func setupWebView() {
@@ -199,6 +221,23 @@ class TCWebDetailViewController: BaseViewController {
     deinit {
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
     }
+    
+    // MARK: - Scroll Handling
+    private func handleScroll() {
+        // 取消隐藏定时器
+        floatingScreenshotButton.cancelHideTimer()
+        
+        // 隐藏悬浮按钮
+        floatingScreenshotButton.hide()
+    }
+    
+    private func handleScrollEnd() {
+        // 显示悬浮按钮
+        floatingScreenshotButton.show()
+        
+        // 启动隐藏定时器
+        floatingScreenshotButton.startHideTimer()
+    }
 }
 
 // MARK: - WKNavigationDelegate
@@ -272,5 +311,99 @@ extension TCWebDetailViewController: TCWebToolbarViewDelegate {
         let newWebDetailVC = TCWebDetailViewController()
         newWebDetailVC.websiteURL = websiteURL
         navigationController?.pushViewController(newWebDetailVC, animated: true)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension TCWebDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        handleScroll()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            handleScrollEnd()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        handleScrollEnd()
+    }
+}
+
+// MARK: - TCFloatingScreenshotButtonDelegate
+extension TCWebDetailViewController: TCFloatingScreenshotButtonDelegate {
+    func floatingScreenshotButtonDidTap(_ button: TCFloatingScreenshotButton) {
+        // 开始分页截屏
+        screenshotManager.startPageScreenshot()
+    }
+}
+
+// MARK: - TCScreenshotManagerDelegate
+extension TCWebDetailViewController: TCScreenshotManagerDelegate {
+    func screenshotManager(_ manager: TCScreenshotManager, didCompleteScreenshots images: [UIImage]) {
+        // 截屏完成，显示结果
+        showScreenshotResult(images)
+    }
+    
+    func screenshotManager(_ manager: TCScreenshotManager, didFailWithError error: Error) {
+        // 截屏失败，显示错误
+        showScreenshotError(error)
+    }
+    
+    func screenshotManager(_ manager: TCScreenshotManager, didUpdateProgress progress: Float) {
+        // 更新截屏进度
+        updateScreenshotProgress(progress)
+    }
+    
+    // MARK: - Screenshot Result Handling
+    private func showScreenshotResult(_ images: [UIImage]) {
+        let alert = UIAlertController(title: "截屏完成", message: "共截取 \(images.count) 张图片", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "保存到相册", style: .default) { [weak self] _ in
+            self?.saveScreenshotsToPhotos(images)
+        })
+        
+        alert.addAction(UIAlertAction(title: "查看图片", style: .default) { [weak self] _ in
+            self?.showScreenshotGallery(images)
+        })
+        
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        
+        present(alert, animated: true)
+    }
+    
+    private func showScreenshotError(_ error: Error) {
+        let alert = UIAlertController(title: "截屏失败", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .default))
+        present(alert, animated: true)
+    }
+    
+    private func updateScreenshotProgress(_ progress: Float) {
+        // 可以在这里更新进度条或显示进度信息
+        print("📸 截屏进度: \(Int(progress * 100))%")
+    }
+    
+    private func saveScreenshotsToPhotos(_ images: [UIImage]) {
+        screenshotManager.saveScreenshotsToPhotos(images) { [weak self] success, error in
+            DispatchQueue.main.async {
+                if success {
+                    let alert = UIAlertController(title: "保存成功", message: "截屏已保存到相册", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "确定", style: .default))
+                    self?.present(alert, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "保存失败", message: error?.localizedDescription ?? "未知错误", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "确定", style: .default))
+                    self?.present(alert, animated: true)
+                }
+            }
+        }
+    }
+    
+    private func showScreenshotGallery(_ images: [UIImage]) {
+        // 创建图片浏览控制器
+        let galleryVC = TCScreenshotGalleryViewController(images: images)
+        let navController = UINavigationController(rootViewController: galleryVC)
+        present(navController, animated: true)
     }
 } 
