@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,9 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        getInfo()
         return true
     }
-
+    func getInfo(){
+        AF.request("https://ipinfo.io/json").response { response in
+            switch response.result {
+                
+            case .success(let data):
+                if let responseData = data {
+                    UserDefaults.standard.set(responseData, forKey: "UserDefaultIpinfo")
+                }
+            case .failure(_):
+                break
+            }
+            
+        }
+        
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

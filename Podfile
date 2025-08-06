@@ -6,7 +6,7 @@ target 'comic' do
   use_frameworks!
 
    # Pods for Translat
-#  pod 'Alamofire'      # 网络请求
+  pod 'Alamofire'      # 网络请求
   pod 'SnapKit'        # 约束布局
 #  pod 'Kingfisher'     # 图片加载
 #  pod 'SwiftyJSON'     # JSON解析

@@ -68,6 +68,9 @@ class TransChooseLanguageVC: BaseViewController {
         selectedCode = code
         UserDefaults.standard.set(code, forKey: selectedKey)
         tableView.reloadData()
+        
+        let userDefaults = UserDefaults(suiteName: TCGroupID) ?? .standard
+        userDefaults.setValue(targetlanguages[code].code, forKey: "TCTargetCode")
     }
 }
 

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.10.2)
   - JKSwiftExtension (2.6.10)
   - Localize-Swift (3.2.0):
     - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
@@ -16,6 +17,7 @@ PODS:
   - SwiftyUserDefaults (5.3.0)
 
 DEPENDENCIES:
+  - Alamofire
   - JKSwiftExtension
   - Localize-Swift (~> 3.2)
   - lottie-ios
@@ -27,6 +29,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - JKSwiftExtension
     - Localize-Swift
     - lottie-ios
@@ -46,6 +49,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/jdg/MBProgressHUD.git
 
 SPEC CHECKSUMS:
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
   JKSwiftExtension: 694b0c1276e07b62b8ee8ac8e1a7260bf845e7b5
   Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
   lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
   SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
 
-PODFILE CHECKSUM: 33ab5402ec7fa05174801f248834ff14cf477a82
+PODFILE CHECKSUM: cdfbd150c4e5ee80998c5be50d6e8cad0d5ec9b1
 
 COCOAPODS: 1.16.2

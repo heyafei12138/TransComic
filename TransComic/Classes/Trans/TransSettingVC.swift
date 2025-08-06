@@ -210,7 +210,14 @@ class TransSettingVC: BaseViewController {
         segue.perform()
     }
     @objc func startTapped() {
-        
+        let urlStr = "https://www.icloud.com/shortcuts/c1286d028f224e9aaa682f70aeaad62b"
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+
     }
 
 }
