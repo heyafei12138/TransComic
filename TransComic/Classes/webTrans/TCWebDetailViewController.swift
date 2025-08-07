@@ -56,7 +56,7 @@ class TCWebDetailViewController: BaseViewController {
     }()
     
     private lazy var screenshotManager: TCScreenshotManager = {
-        let manager = TCScreenshotManager(webView: webView)
+        let manager = TCScreenshotManager(webView: webView,parentView: customNav)
         manager.delegate = self
         return manager
     }()
@@ -111,8 +111,8 @@ class TCWebDetailViewController: BaseViewController {
         }
         
         floatingScreenshotButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-20)
-            make.bottom.equalTo(toolbarView.snp.top).offset(-20)
+            make.right.equalToSuperview().offset(-40)
+            make.bottom.equalTo(toolbarView.snp.top).offset(-40)
             make.size.equalTo(CGSize(width: 56, height: 56))
         }
     }
@@ -224,9 +224,6 @@ class TCWebDetailViewController: BaseViewController {
     
     // MARK: - Scroll Handling
     private func handleScroll() {
-        // 取消隐藏定时器
-        floatingScreenshotButton.cancelHideTimer()
-        
         // 隐藏悬浮按钮
         floatingScreenshotButton.hide()
     }
@@ -236,7 +233,6 @@ class TCWebDetailViewController: BaseViewController {
         floatingScreenshotButton.show()
         
         // 启动隐藏定时器
-        floatingScreenshotButton.startHideTimer()
     }
 }
 
@@ -269,6 +265,8 @@ extension TCWebDetailViewController: WKNavigationDelegate {
         
         // 更新工具栏状态
         toolbarView.updateNavigationState(canGoBack: webView.canGoBack, canGoForward: webView.canGoForward)
+        floatingScreenshotButton.show()
+
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -358,19 +356,22 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
     
     // MARK: - Screenshot Result Handling
     private func showScreenshotResult(_ images: [UIImage]) {
-        let alert = UIAlertController(title: "截屏完成", message: "共截取 \(images.count) 张图片", preferredStyle: .alert)
+        let resultView = ScreenshotResultView(imageCount: images.count)
         
-        alert.addAction(UIAlertAction(title: "保存到相册", style: .default) { [weak self] _ in
-            self?.saveScreenshotsToPhotos(images)
-        })
+        resultView.onAction = { [weak self] action in
+            guard let self = self else { return }
+            switch action {
+            case .translateNow:
+                // 执行翻译逻辑
+                self.startTranslation(images)
+            case .viewImages:
+                self.showScreenshotGallery(images)
+            case .saveToPhotos:
+                self.saveScreenshotsToPhotos(images)
+            }
+        }
         
-        alert.addAction(UIAlertAction(title: "查看图片", style: .default) { [weak self] _ in
-            self?.showScreenshotGallery(images)
-        })
-        
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
-        
-        present(alert, animated: true)
+        UIApplication.shared.keyWindow?.addSubview(resultView)
     }
     
     private func showScreenshotError(_ error: Error) {
@@ -403,7 +404,11 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
     private func showScreenshotGallery(_ images: [UIImage]) {
         // 创建图片浏览控制器
         let galleryVC = TCScreenshotGalleryViewController(images: images)
-        let navController = UINavigationController(rootViewController: galleryVC)
-        present(navController, animated: true)
+//        galleryVC)
+        present(galleryVC, animated: true)
     }
-} 
+    //
+    private func startTranslation(_ images: [UIImage]) {
+        
+    }
+}

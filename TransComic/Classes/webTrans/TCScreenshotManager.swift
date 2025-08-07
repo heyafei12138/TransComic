@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import Photos
 
 protocol TCScreenshotManagerDelegate: AnyObject {
     func screenshotManager(_ manager: TCScreenshotManager, didCompleteScreenshots images: [UIImage])
@@ -23,10 +24,12 @@ class TCScreenshotManager: NSObject {
     private var currentPage = 0
     private var totalPages = 0
     private var isCapturing = false
-    
+    var parentView: UIView!
+
     // MARK: - Initialization
-    init(webView: WKWebView) {
+    init(webView: WKWebView, parentView: UIView) {
         self.webView = webView
+        self.parentView = parentView
         super.init()
     }
     
@@ -37,10 +40,8 @@ class TCScreenshotManager: NSObject {
         screenshots.removeAll()
         currentPage = 0
         
-        // 显示加载提示
         showLoadingIndicator()
         
-        // 获取网页总高度
         getWebPageHeight { [weak self] totalHeight in
             guard let self = self else { return }
             
@@ -49,11 +50,10 @@ class TCScreenshotManager: NSObject {
             
             print("📸 开始分页截屏: 总高度 \(totalHeight), 屏幕高度 \(screenHeight), 总页数 \(self.totalPages)")
             
-            // 开始截屏
             self.captureNextPage()
         }
     }
-    
+
     // MARK: - Private Methods
     private func getWebPageHeight(completion: @escaping (CGFloat) -> Void) {
         let script = """
@@ -82,15 +82,15 @@ class TCScreenshotManager: NSObject {
     }
     
     private func getWebViewVisibleHeight() -> CGFloat {
-        // 计算WebView的可见高度（减去导航栏和工具栏）
         let navHeight = kNavHeight
         let toolbarHeight = 50 + kBottomSafeHeight
         return UIScreen.main.bounds.height - navHeight - toolbarHeight
     }
     
     private func captureNextPage() {
+        guard isCapturing else { return }
+
         guard currentPage < totalPages else {
-            // 截屏完成
             completeScreenshot()
             return
         }
@@ -98,11 +98,9 @@ class TCScreenshotManager: NSObject {
         let screenHeight = getWebViewVisibleHeight()
         let scrollY = CGFloat(currentPage) * screenHeight
         
-        // 滚动到指定位置
         scrollToPosition(scrollY) { [weak self] in
             guard let self = self else { return }
             
-            // 等待页面稳定后截屏
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.captureCurrentPage()
             }
@@ -119,13 +117,15 @@ class TCScreenshotManager: NSObject {
     }
     
     private func captureCurrentPage() {
-        // 使用WKWebView的截图方法
+        guard isCapturing else { return }
+
         let config = WKSnapshotConfiguration()
         config.rect = webView.bounds
         
         webView.takeSnapshot(with: config) { [weak self] image, error in
             guard let self = self else { return }
-            
+            guard self.isCapturing else { return }
+
             if let error = error {
                 print("❌ 截屏失败: \(error)")
                 self.delegate?.screenshotManager(self, didFailWithError: error)
@@ -136,7 +136,6 @@ class TCScreenshotManager: NSObject {
                 self.screenshots.append(image)
                 print("📸 截屏成功: 第 \(self.currentPage + 1) 页")
                 
-                // 更新进度
                 let progress = Float(self.currentPage + 1) / Float(self.totalPages)
                 self.delegate?.screenshotManager(self, didUpdateProgress: progress)
                 
@@ -152,55 +151,80 @@ class TCScreenshotManager: NSObject {
         
         print("✅ 分页截屏完成: 共 \(screenshots.count) 张图片")
         
-        // 滚动回顶部
         scrollToPosition(0) { [weak self] in
             guard let self = self else { return }
             self.delegate?.screenshotManager(self, didCompleteScreenshots: self.screenshots)
         }
     }
-    
+
+    // MARK: - Loading View
     private func showLoadingIndicator() {
-        // 在WebView上显示加载指示器
         let loadingView = UIView()
         loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         loadingView.tag = 999
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleLoadingViewTap))
+        loadingView.addGestureRecognizer(tapGesture)
         
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = UIColor.white
         indicator.startAnimating()
         
         let label = UILabel()
-        label.text = "正在截屏..."
+        label.text = "正在截屏中…（点击取消）".localized()
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .center
-        
+        label.numberOfLines = 2
+
         loadingView.addSubview(indicator)
         loadingView.addSubview(label)
-        
-        webView.addSubview(loadingView)
+        parentView.addSubview(loadingView)
         
         loadingView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         indicator.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-20)
+            make.left.equalToSuperview().inset(40)
+            make.bottom.equalToSuperview().offset(-10)
         }
-        
+
         label.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(indicator.snp.bottom).offset(10)
+            make.centerY.equalTo(indicator)
+            make.left.equalTo(indicator.snp.right).offset(20)
+            make.right.equalToSuperview().inset(40)
         }
     }
-    
+
     private func hideLoadingIndicator() {
-        webView.viewWithTag(999)?.removeFromSuperview()
+        parentView.viewWithTag(999)?.removeFromSuperview()
+    }
+
+    // MARK: - 用户点击取消截屏
+    @objc private func handleLoadingViewTap() {
+        guard isCapturing else { return }
+        
+        isCapturing = false
+        hideLoadingIndicator()
+
+        if screenshots.isEmpty {
+            print("⚠️ 用户取消截屏（无截图）")
+            let error = NSError(domain: "TCScreenshotManager",
+                                code: -3,
+                                userInfo: [NSLocalizedDescriptionKey: "用户取消了截屏"])
+            delegate?.screenshotManager(self, didFailWithError: error)
+        } else {
+            print("⚠️ 用户取消截屏（已有 \(screenshots.count) 张）")
+            scrollToPosition(0) { [weak self] in
+                guard let self = self else { return }
+                self.delegate?.screenshotManager(self, didCompleteScreenshots: self.screenshots)
+            }
+        }
     }
 }
 
-// MARK: - 扩展：保存截屏图片
+// MARK: - 保存相册
 extension TCScreenshotManager {
     
     func saveScreenshotsToPhotos(_ images: [UIImage], completion: @escaping (Bool, Error?) -> Void) {
@@ -208,8 +232,7 @@ extension TCScreenshotManager {
             completion(false, NSError(domain: "TCScreenshotManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "没有图片可保存"]))
             return
         }
-        
-        // 检查相册权限
+
         checkPhotoLibraryPermission { [weak self] granted in
             guard let self = self else { return }
             
@@ -222,17 +245,38 @@ extension TCScreenshotManager {
     }
     
     private func checkPhotoLibraryPermission(completion: @escaping (Bool) -> Void) {
-        // 这里需要根据实际项目添加相册权限检查
-        // 暂时返回true，实际使用时需要实现权限检查
-        completion(true)
+        let status = PHPhotoLibrary.authorizationStatus(for: .addOnly)
+        
+        switch status {
+        case .authorized, .limited:
+            completion(true)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization(for: .addOnly) { newStatus in
+                DispatchQueue.main.async {
+                    completion(newStatus == .authorized || newStatus == .limited)
+                }
+            }
+        case .denied, .restricted:
+            completion(false)
+        @unknown default:
+            completion(false)
+        }
     }
     
     private func performSaveToPhotos(_ images: [UIImage], completion: @escaping (Bool, Error?) -> Void) {
-        // 这里需要根据实际项目实现保存到相册的功能
-        // 暂时模拟保存成功
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            print("💾 保存截屏到相册: \(images.count) 张图片")
-            completion(true, nil)
+        var successCount = 0
+        let group = DispatchGroup()
+
+        for image in images {
+            group.enter()
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            successCount += 1
+            group.leave()
+        }
+
+        group.notify(queue: .main) {
+            completion(successCount == images.count, nil)
         }
     }
-} 
+}
+

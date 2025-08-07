@@ -85,7 +85,7 @@ class TCScreenshotGalleryViewController: UIViewController {
     
     // MARK: - Setup
     private func setupUI() {
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = LmainColor.withAlphaComponent(0.1)
         
         view.addSubview(collectionView)
         view.addSubview(pageLabel)

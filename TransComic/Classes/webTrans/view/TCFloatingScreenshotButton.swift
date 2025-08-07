@@ -16,7 +16,6 @@ class TCFloatingScreenshotButton: UIView {
     // MARK: - Properties
     weak var delegate: TCFloatingScreenshotButtonDelegate?
     private var isVisible = true
-    private var hideTimer: Timer?
     
     // MARK: - UI Components
     private lazy var containerView: UIView = {
@@ -32,7 +31,7 @@ class TCFloatingScreenshotButton: UIView {
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "camera.fill")
+        imageView.image = UIImage(named: "trans_icon")
         imageView.tintColor = UIColor.white
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -105,22 +104,11 @@ class TCFloatingScreenshotButton: UIView {
         isVisible = false
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseIn) {
-            self.transform = CGAffineTransform(translationX: 0, y: 100)
+            self.transform = CGAffineTransform(translationX: 100, y: 0)
             self.alpha = 0.0
         }
     }
     
-    func startHideTimer() {
-        hideTimer?.invalidate()
-        hideTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { [weak self] _ in
-            self?.hide()
-        }
-    }
-    
-    func cancelHideTimer() {
-        hideTimer?.invalidate()
-        hideTimer = nil
-    }
     
     // MARK: - Actions
     @objc private func buttonTapped() {
@@ -167,7 +155,7 @@ class TCFloatingScreenshotButton: UIView {
             tooltip.alpha = 1.0
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             UIView.animate(withDuration: 0.2) {
                 tooltip.alpha = 0
             } completion: { _ in
