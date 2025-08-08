@@ -410,5 +410,14 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
     //
     private func startTranslation(_ images: [UIImage]) {
         
+        let vc = TCImageLoadingVC()
+        vc.images = images
+        vc.transResults = {[weak self] images in
+            guard let self = self else { return  }
+            
+        }
+        view.addSubview(vc.view)
+        addChild(vc)
+        vc.view.frame = view.bounds
     }
 }
