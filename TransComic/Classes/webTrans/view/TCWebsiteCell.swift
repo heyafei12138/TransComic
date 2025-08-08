@@ -29,11 +29,12 @@ class TCWebsiteCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var iconLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24)
-        label.textAlignment = .center
-        return label
+    private lazy var iconImageV: UIImageView = {
+        let icon = UIImageView()
+        icon.contentMode = .scaleAspectFill
+        icon.layer.cornerRadius = 16
+        icon.layer.masksToBounds = true
+        return icon
     }()
     
     private lazy var nameLabel: UILabel = {
@@ -72,7 +73,7 @@ class TCWebsiteCell: UICollectionViewCell {
     // MARK: - Setup
     private func setupUI() {
         contentView.addSubview(containerView)
-        containerView.addSubview(iconLabel)
+        containerView.addSubview(iconImageV)
         containerView.addSubview(nameLabel)
         containerView.addSubview(deleteButton)
         
@@ -84,14 +85,14 @@ class TCWebsiteCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         
-        iconLabel.snp.makeConstraints { make in
+        iconImageV.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 32, height: 32))
         }
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(iconLabel.snp.bottom).offset(4)
+            make.top.equalTo(iconImageV.snp.bottom).offset(4)
             make.left.right.equalToSuperview().inset(4)
             make.bottom.equalToSuperview().offset(-8)
         }
@@ -111,7 +112,7 @@ class TCWebsiteCell: UICollectionViewCell {
     // MARK: - Configuration
     func configure(with website: TCWebsiteModel) {
         self.website = website
-        iconLabel.text = website.icon
+        iconImageV.image = UIImage(named: website.icon)
         nameLabel.text = website.name
     }
     
@@ -137,7 +138,7 @@ class TCWebsiteCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         website = nil
-        iconLabel.text = ""
+        iconImageV.image = UIImage(named: "")
         nameLabel.text = ""
         deleteButton.isHidden = true
         deleteButton.alpha = 0.8

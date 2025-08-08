@@ -152,7 +152,7 @@ class TCWebDetailViewController: BaseViewController {
             webView.load(request)
             
             // 创建网站模型
-            currentWebsite = TCWebsiteModel(name: url.host ?? "未知网站", url: websiteURL, icon: "🌐")
+            currentWebsite = TCWebsiteModel(name: url.host ?? "未知网站", url: websiteURL, icon: "web_icon01")
             
             // 检查收藏状态
             checkFavoriteStatus()
@@ -253,7 +253,7 @@ extension TCWebDetailViewController: WKNavigationDelegate {
         
         // 更新当前网站信息
         if let url = webView.url?.absoluteString {
-            let updatedWebsite = TCWebsiteModel(name: webView.title ?? webView.url?.host ?? "未知网站", url: url, icon: "🌐")
+            let updatedWebsite = TCWebsiteModel(name: webView.title ?? webView.url?.host ?? "未知网站", url: url, icon: "web_icon01")
             currentWebsite = updatedWebsite
             
             // 更新历史记录（使用正确的网站标题）

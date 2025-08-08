@@ -119,12 +119,17 @@ class TCWebTransHomeViewController: BaseViewController {
     private func setupData() {
         // 初始化常用网址
         commonWebsites = [
-            TCWebsiteModel(name: "百度", url: "https://www.baidu.com", icon: "🌐"),
-            TCWebsiteModel(name: "谷歌", url: "https://www.google.com", icon: "🌐"),
-            TCWebsiteModel(name: "必应", url: "https://www.bing.com", icon: "🌐"),
-            TCWebsiteModel(name: "GitHub", url: "https://github.com", icon: "💻"),
-            TCWebsiteModel(name: "Stack Overflow", url: "https://stackoverflow.com", icon: "💻"),
-            TCWebsiteModel(name: "YouTube", url: "https://www.youtube.com", icon: "📺")
+            TCWebsiteModel(name: "네이버 웹툰", url: "https://comic.naver.com/index", icon: "naver"),
+            TCWebsiteModel(name: "LINE WEBTOON", url: "https://www.webtoons.com/th/", icon: "webtoon"),
+            TCWebsiteModel(name: "少年ジャンプ＋", url: "https://shonenjumpplus.com/", icon: "shonenjumpplus"),
+            TCWebsiteModel(name: "pixiv", url: "https://www.pixiv.net/manga", icon: "pixiv"),
+            TCWebsiteModel(name: "MANGA Plus", url: "https://mangaplus.shueisha.co.jp/", icon: "manga"),
+            TCWebsiteModel(name: "카카오페이지", url: "https://page.kakao.com/", icon: "kakao"),
+            TCWebsiteModel(name: "MangaDex", url: "https://mangadex.org/", icon: "mangadex"),
+            TCWebsiteModel(name: "コミックウォーカー", url: "https://comic-walker.com/", icon: "shonenjumpplus-1"),
+            TCWebsiteModel(name: "Tapas – Comics and Novels", url: "https://tapas.io/", icon: "topas"),
+            TCWebsiteModel(name: "comico", url: "https://www.comico.in.th/", icon: "comico"),
+          
         ]
         
         loadData()
