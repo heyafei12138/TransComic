@@ -124,9 +124,28 @@ class HomeViewController: BaseViewController {
             make.top.equalTo(card2.snp.bottom).offset(20)
             make.left.right.bottom.equalToSuperview()
         }
+        
+        let imageV = UIImageView(image: UIImage(named: "history"))
+        historyBgView.addSubview(imageV)
+        imageV.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.height.equalTo(20)
+        }
+        let title = UILabel()
+        title.text = "历史记录".localized()
+        title.textColor = .hexString("#333333")
+        title.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        historyBgView.addSubview(title)
+        title.snp.makeConstraints { make in
+            make.centerY.equalTo(imageV)
+            make.left.equalTo(imageV.snp.right).offset(10)
+        }
+        
+        
         // 查看更多按钮
-        moreButton.setTitle("查看更多", for: .normal)
-        moreButton.setTitleColor(UIColor.hexString("#007AFF"), for: .normal)
+        moreButton.setTitle("查看更多 >", for: .normal)
+        moreButton.setTitleColor(LmainColor, for: .normal)
         moreButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)
         historyBgView.addSubview(moreButton)
