@@ -232,7 +232,6 @@ class TCWebDetailViewController: BaseViewController {
         // 显示悬浮按钮
         floatingScreenshotButton.show()
         
-        // 启动隐藏定时器
     }
 }
 
@@ -370,6 +369,7 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
                 self.saveScreenshotsToPhotos(images)
             }
         }
+        resultView.parentVC = self
         
         UIApplication.shared.keyWindow?.addSubview(resultView)
     }

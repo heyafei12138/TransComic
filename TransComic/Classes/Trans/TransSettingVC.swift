@@ -13,9 +13,9 @@ class TransSettingVC: BaseViewController {
     private var queuePlayer: AVQueuePlayer?
     private var playerLayer: AVPlayerLayer?
     private var playerContainerView: UIView!
+    let languageLabel = UILabel()
 
     private let settingBgView = UIView()
-    let languageLabel = UILabel()
     var languageIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()

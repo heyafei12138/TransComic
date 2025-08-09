@@ -102,6 +102,7 @@ class TCImageLoadingVC: UIViewController {
 //        closeButton.layer.cornerRadius = 22
         closeButton.setImage(UIImage(named: "close_icon"), for: .normal)
         closeButton.clipsToBounds = true
+        closeButton.setTitleColor(LmainColor.withAlphaComponent(0.2), for: .normal)
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         closeButton.snp.makeConstraints { make in
             make.bottom.equalTo(topGifImageView.snp.top).offset(30)
