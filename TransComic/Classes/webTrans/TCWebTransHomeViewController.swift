@@ -55,6 +55,12 @@ class TCWebTransHomeViewController: BaseViewController {
         return view
     }()
     
+    private lazy var screenshotHistoryView: TCScreenshotHistorySectionView = {
+        let view = TCScreenshotHistorySectionView()
+        view.delegate = self
+        return view
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +84,7 @@ class TCWebTransHomeViewController: BaseViewController {
         contentView.addSubview(commonWebsitesView)
         contentView.addSubview(favoriteWebsitesView)
         contentView.addSubview(historyWebsitesView)
+        contentView.addSubview(screenshotHistoryView)
         
         setupConstraints()
     }
@@ -111,6 +118,11 @@ class TCWebTransHomeViewController: BaseViewController {
         
         historyWebsitesView.snp.makeConstraints { make in
             make.top.equalTo(favoriteWebsitesView.snp.bottom).offset(30)
+            make.left.right.equalToSuperview().inset(16)
+        }
+        
+        screenshotHistoryView.snp.makeConstraints { make in
+            make.top.equalTo(historyWebsitesView.snp.bottom).offset(30)
             make.left.right.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().offset(-20)
         }
@@ -147,6 +159,9 @@ class TCWebTransHomeViewController: BaseViewController {
         
         // 更新UI
         updateUI()
+        
+        // 更新截屏历史记录
+        screenshotHistoryView.updateData()
     }
     
     private func updateUI() {
@@ -184,5 +199,18 @@ extension TCWebTransHomeViewController: TCWebsitesSectionViewDelegate {
             TCWebsiteManager.shared.removeHistoryWebsite(website)
         }
         loadData()
+    }
+}
+
+// MARK: - TCScreenshotHistorySectionViewDelegate
+extension TCWebTransHomeViewController: TCScreenshotHistorySectionViewDelegate {
+    func screenshotHistorySectionView(_ view: TCScreenshotHistorySectionView, didSelectHistory history: TCScreenshotHistoryModel) {
+        let detailVC = TCScreenshotHistoryDetailViewController(history: history)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func screenshotHistorySectionViewDidTapMore(_ view: TCScreenshotHistorySectionView) {
+        let listVC = TCScreenshotHistoryListViewController()
+        navigationController?.pushViewController(listVC, animated: true)
     }
 } 

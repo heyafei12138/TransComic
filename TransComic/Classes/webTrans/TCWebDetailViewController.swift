@@ -339,6 +339,9 @@ extension TCWebDetailViewController: TCFloatingScreenshotButtonDelegate {
 // MARK: - TCScreenshotManagerDelegate
 extension TCWebDetailViewController: TCScreenshotManagerDelegate {
     func screenshotManager(_ manager: TCScreenshotManager, didCompleteScreenshots images: [UIImage]) {
+        // 保存截屏历史记录
+        saveScreenshotHistory(images)
+        
         // 截屏完成，显示结果
         showScreenshotResult(images)
     }
@@ -404,8 +407,25 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
     private func showScreenshotGallery(_ images: [UIImage]) {
         // 创建图片浏览控制器
         let galleryVC = TCScreenshotGalleryViewController(images: images)
-//        galleryVC)
         present(galleryVC, animated: true)
+    }
+    
+    private func saveScreenshotHistory(_ images: [UIImage]) {
+        guard !images.isEmpty else { return }
+        
+        let title = currentWebsite?.name ?? "未知网站"
+        let category = "网页截屏"
+        let websiteURL = currentWebsite?.url ?? websiteURL
+        
+        let history = TCScreenshotHistoryModel(
+            title: title,
+            category: category,
+            websiteURL: websiteURL,
+            images: images
+        )
+        
+        TCScreenshotHistoryManager.shared.addScreenshotHistory(history)
+        print("💾 保存截屏历史记录: \(title) (\(images.count) 张图片)")
     }
     //
     private func startTranslation(_ images: [UIImage]) {

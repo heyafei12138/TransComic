@@ -47,4 +47,25 @@ class TCWebTransModule {
     static func isScreenshotSupported() -> Bool {
         return true
     }
+    
+    /// 获取截屏历史记录列表控制器
+    static func getScreenshotHistoryListViewController() -> TCScreenshotHistoryListViewController {
+        return TCScreenshotHistoryListViewController()
+    }
+    
+    /// 获取截屏历史记录数量
+    static func getScreenshotHistoryCount() -> Int {
+        return TCScreenshotHistoryManager.shared.getScreenshotHistories().count
+    }
+    
+    /// 获取截屏历史记录总图片数量
+    static func getScreenshotHistoryImageCount() -> Int {
+        return TCScreenshotHistoryManager.shared.getTotalImageCount()
+    }
+    
+    /// 获取截屏历史记录存储大小
+    static func getScreenshotHistoryStorageSize() -> String {
+        let size = TCScreenshotHistoryManager.shared.getTotalStorageSize()
+        return TCScreenshotHistoryManager.shared.formatStorageSize(size)
+    }
 } 
