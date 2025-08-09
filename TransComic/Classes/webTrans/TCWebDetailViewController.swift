@@ -415,7 +415,7 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
         
         let title = currentWebsite?.name ?? "未知网站"
         let category = "网页截屏"
-        let websiteURL = currentWebsite?.url ?? websiteURL
+        let websiteURL = currentWebsite?.url ?? ""
         
         let history = TCScreenshotHistoryModel(
             title: title,
@@ -426,6 +426,15 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
         
         TCScreenshotHistoryManager.shared.addScreenshotHistory(history)
         print("💾 保存截屏历史记录: \(title) (\(images.count) 张图片)")
+        
+        // 同时添加到首页历史记录
+        if let firstImage = images.first {
+            HomeHistoryHelper.addScreenshotHistory(
+                title: title,
+                image: firstImage,
+                description: "成功截取了\(images.count)张网页截图，来自网站：\(websiteURL)"
+            )
+        }
     }
     //
     private func startTranslation(_ images: [UIImage]) {

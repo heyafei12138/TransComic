@@ -21,14 +21,52 @@ class HomeViewController: BaseViewController {
     private let historyTable = UITableView()
     let ImageView = UIImageView()
 
-    private var historyData: [(icon: UIImage?, title: String, time: String)] = []
-    
+    private var historyData: [HomeHistoryModel] = []
+    private lazy var emptyView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "clock.arrow.circlepath")
+        imageView.tintColor = UIColor.gray
+        imageView.contentMode = .scaleAspectFit
+        
+        let label = UILabel()
+        label.text = "暂无历史记录"
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.gray
+        label.textAlignment = .center
+        
+        view.addSubview(imageView)
+        view.addSubview(label)
+        
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-20)
+            make.size.equalTo(CGSize(width: 60, height: 60))
+        }
+        
+        label.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom).offset(16)
+        }
+        
+        return view
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.hexString("#F1F0FF")
         setupNav()
         setupCards()
         setupHistory()
+        loadHistory()
+        
+        // 添加一些示例数据（仅用于演示）
+        addSampleData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadHistory()
     }
     
@@ -166,6 +204,12 @@ class HomeViewController: BaseViewController {
             make.top.equalTo(moreButton.snp.bottom).offset(8)
             make.left.right.bottom.equalToSuperview().inset(10)
         }
+        
+        historyBgView.addSubview(emptyView)
+        emptyView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview().inset(16)
+            make.top.equalTo(moreButton.snp.bottom).offset(8)
+        }
     }
     func setGradientBackground(view: UIView, mainColor: UIColor) {
         let gradientLayer = CAGradientLayer()
@@ -188,13 +232,25 @@ class HomeViewController: BaseViewController {
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     private func loadHistory() {
-        // 模拟历史数据
-        historyData = [
-            (UIImage(named: "demo1"), "翻译了台词：你好世界", "2025-07-28 10:00"),
-            (UIImage(named: "demo2"), "识别图片并翻译", "2025-07-27 18:30"),
-            (UIImage(named: "demo1"), "翻译了台词：早上好", "2025-07-27 09:12")
-        ]
+        // 加载最近的历史记录
+        historyData = HomeHistoryManager.shared.getRecentHistories(limit: 10)
+        updateEmptyView()
         historyTable.reloadData()
+    }
+    
+    private func addSampleData() {
+        // 如果历史记录为空，添加一些示例数据
+        if HomeHistoryManager.shared.getTotalCount() == 0 {
+            let sampleHistories = [
+                HomeHistoryModel(title: "翻译了台词：你好世界", category: "动漫翻译", image: UIImage(named: "wanou01"), description: "成功翻译了动漫中的台词，支持多语言翻译功能。"),
+                HomeHistoryModel(title: "识别图片并翻译", category: "图片识别", image: UIImage(named: "wanou02"), description: "使用OCR技术识别图片中的文字并进行翻译。"),
+                HomeHistoryModel(title: "翻译了台词：早上好", category: "动漫翻译", image: UIImage(named: "wanou01"), description: "翻译了动漫中的问候语，准确率很高。")
+            ]
+            
+            for history in sampleHistories {
+                HomeHistoryManager.shared.addHistory(history)
+            }
+        }
     }
     
     // MARK: - 交互逻辑
@@ -216,7 +272,11 @@ class HomeViewController: BaseViewController {
     }
     @objc private func moreTapped() {
         // 查看更多历史
-        print("查看更多历史")
+        let historyListVC = HomeHistoryListViewController()
+        navigationController?.pushViewController(historyListVC, animated: true)
+    }
+    private func updateEmptyView() {
+        emptyView.isHidden = !historyData.isEmpty
     }
 }
 
@@ -228,12 +288,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeHistoryCell", for: indexPath) as! HomeHistoryCell
         let item = historyData[indexPath.row]
-        cell.configure(icon: item.icon, title: item.title, time: item.time)
+        cell.configure(with: item)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("点击历史记录第\(indexPath.row)项")
+        let history = historyData[indexPath.row]
+        let detailVC = HomeHistoryDetailViewController(history: history)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // 可根据需要处理滑动逻辑
