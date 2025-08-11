@@ -28,27 +28,57 @@ class HomeViewController: BaseViewController {
         
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "clock.arrow.circlepath")
-        imageView.tintColor = UIColor.gray
+        imageView.tintColor = UIColor.hexString("#CCCCCC")
         imageView.contentMode = .scaleAspectFit
         
-        let label = UILabel()
-        label.text = "暂无历史记录"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.gray
-        label.textAlignment = .center
+        let titleLabel = UILabel()
+        titleLabel.text = "暂无历史记录"
+        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        titleLabel.textColor = UIColor.hexString("#666666")
+        titleLabel.textAlignment = .center
+        
+        let descLabel = UILabel()
+        descLabel.text = "开始使用应用功能，记录将在这里显示"
+        descLabel.font = UIFont.systemFont(ofSize: 14)
+        descLabel.textColor = UIColor.hexString("#999999")
+        descLabel.textAlignment = .center
+        descLabel.numberOfLines = 0
+        
+        let actionButton = UIButton(type: .system)
+        actionButton.setTitle("去体验", for: .normal)
+        actionButton.setTitleColor(.white, for: .normal)
+        actionButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        actionButton.backgroundColor = LmainColor
+        actionButton.layer.cornerRadius = 20
+        actionButton.addTarget(self, action: #selector(emptyViewActionTapped), for: .touchUpInside)
         
         view.addSubview(imageView)
-        view.addSubview(label)
+        view.addSubview(titleLabel)
+        view.addSubview(descLabel)
+        view.addSubview(actionButton)
         
         imageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-20)
-            make.size.equalTo(CGSize(width: 60, height: 60))
+            make.centerY.equalToSuperview().offset(-60)
+            make.size.equalTo(CGSize(width: 80, height: 80))
         }
         
-        label.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(imageView.snp.bottom).offset(16)
+            make.top.equalTo(imageView.snp.bottom).offset(20)
+        }
+        
+        descLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(12)
+            make.left.right.equalToSuperview().inset(40)
+        }
+        
+        actionButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(descLabel.snp.bottom).offset(24)
+            make.width.equalTo(120)
+            make.height.equalTo(40)
         }
         
         return view
@@ -256,7 +286,8 @@ class HomeViewController: BaseViewController {
     // MARK: - 交互逻辑
     @objc private func settingTapped() {
         // 跳转设置页
-        print("设置按钮点击")
+        let settingVC = TCSettingViewController()
+        navigationController?.pushViewController(settingVC, animated: true)
     }
     @objc private func vipTapped() {
         // 跳转VIP页
@@ -275,8 +306,16 @@ class HomeViewController: BaseViewController {
         let historyListVC = HomeHistoryListViewController()
         navigationController?.pushViewController(historyListVC, animated: true)
     }
+    
+    @objc private func emptyViewActionTapped() {
+        // 空视图的"去体验"按钮点击事件
+        // 默认跳转到第一个卡片功能
+        QuickTranTapped()
+    }
+    
     private func updateEmptyView() {
         emptyView.isHidden = !historyData.isEmpty
+        historyTable.isHidden = historyData.isEmpty
     }
 }
 
