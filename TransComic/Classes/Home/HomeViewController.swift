@@ -241,15 +241,15 @@ class HomeViewController: BaseViewController {
     private func addSampleData() {
         // 如果历史记录为空，添加一些示例数据
         if HomeHistoryManager.shared.getTotalCount() == 0 {
-            let sampleHistories = [
-                HomeHistoryModel(title: "翻译了台词：你好世界", category: "动漫翻译", image: UIImage(named: "wanou01"), description: "成功翻译了动漫中的台词，支持多语言翻译功能。"),
-                HomeHistoryModel(title: "识别图片并翻译", category: "图片识别", image: UIImage(named: "wanou02"), description: "使用OCR技术识别图片中的文字并进行翻译。"),
-                HomeHistoryModel(title: "翻译了台词：早上好", category: "动漫翻译", image: UIImage(named: "wanou01"), description: "翻译了动漫中的问候语，准确率很高。")
-            ]
-            
-            for history in sampleHistories {
-                HomeHistoryManager.shared.addHistory(history)
-            }
+//            let sampleHistories = [
+//                HomeHistoryModel(title: "翻译了台词：你好世界", category: "动漫翻译", image: UIImage(named: "wanou01"), description: "成功翻译了动漫中的台词，支持多语言翻译功能。"),
+//                HomeHistoryModel(title: "识别图片并翻译", category: "图片识别", image: UIImage(named: "wanou02"), description: "使用OCR技术识别图片中的文字并进行翻译。"),
+//                HomeHistoryModel(title: "翻译了台词：早上好", category: "动漫翻译", image: UIImage(named: "wanou01"), description: "翻译了动漫中的问候语，准确率很高。")
+//            ]
+//            
+//            for history in sampleHistories {
+//                HomeHistoryManager.shared.addHistory(history)
+//            }
         }
     }
     

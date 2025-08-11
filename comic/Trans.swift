@@ -46,6 +46,7 @@ struct Trans: AppIntent, CustomIntentMigratedAppIntent, PredictableIntent {
         guard let uiImage = UIImage(data: parameter.data) else {
             throw NSError(domain: "ScreenIntent", code: 2, userInfo: [NSLocalizedDescriptionKey: "Invalid image data"])
         }
+        let userDefaults = UserDefaults(suiteName: TCGroupID) ?? .standard
 
         let result = try  await withCheckedThrowingContinuation { continuation in
             translateImage(uiImage) { result in
@@ -59,6 +60,32 @@ struct Trans: AppIntent, CustomIntentMigratedAppIntent, PredictableIntent {
             throw NSError(domain: "ScreenIntent", code: 3, userInfo: [NSLocalizedDescriptionKey: "No rendered image returned"])
         }
         let processedFile = IntentFile(data: renderedData, filename: "translated_image.png", type: .png)
+        
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd HH:mm"
+        let timestamp = formatter.string(from: now)
+
+        let saveKey = "translatedImageHistory"
+        var history = userDefaults.array(forKey: saveKey) as? [[String: Any]] ?? []
+
+        if let renderedDataString = renderedData.base64EncodedString() as String?,
+           let originalDataString = parameter.data.base64EncodedString() as String? {
+            let newEntry: [String: Any] = [
+                "imageData": renderedDataString,
+                "originalImageData": originalDataString,
+                "timestamp": timestamp
+            ]
+            history.append(newEntry)
+            userDefaults.set(history, forKey: saveKey)
+        }
+        CFNotificationCenterPostNotification(
+            CFNotificationCenterGetDarwinNotifyCenter(),
+            CFNotificationName("ReloadUserNumber" as CFString),
+            nil,
+            nil,
+            true
+        )
 
         return .result(value: processedFile)
     }

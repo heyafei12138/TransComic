@@ -178,7 +178,7 @@ class HomeHistoryListViewController: BaseViewController {
     }
     
     private func setupNavigationBar() {
-        customNav.setRightButton(title: "清空", titleColor: UIColor.red)
+        customNav.setRightButton(title: "清空".localized(), titleColor: mainColor)
         customNav.rightButtonAction = { [weak self] in
             self?.showClearConfirmation()
         }
@@ -227,10 +227,10 @@ class HomeHistoryListViewController: BaseViewController {
     }
     
     private func showClearConfirmation() {
-        let alert = UIAlertController(title: "清空历史记录", message: "确定要清空所有历史记录吗？此操作不可恢复。", preferredStyle: .alert)
+        let alert = UIAlertController(title: "清空历史记录".localized(), message: "确定要清空所有历史记录吗？此操作不可恢复。".localized(), preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
-        alert.addAction(UIAlertAction(title: "清空", style: .destructive) { [weak self] _ in
+        alert.addAction(UIAlertAction(title: "取消".localized(), style: .cancel))
+        alert.addAction(UIAlertAction(title: "清空".localized(), style: .destructive) { [weak self] _ in
             self?.clearAllHistories()
         })
         

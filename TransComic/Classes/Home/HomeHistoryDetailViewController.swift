@@ -154,10 +154,10 @@ class HomeHistoryDetailViewController: BaseViewController {
             make.height.equalTo(24)
         }
         
-        dateLabel.snp.makeConstraints { make in
-            make.left.equalTo(categoryLabel.snp.right).offset(12)
-            make.centerY.equalTo(categoryLabel)
-        }
+//        dateLabel.snp.makeConstraints { make in
+//            make.left.equalTo(categoryLabel.snp.right).offset(12)
+//            make.centerY.equalTo(categoryLabel)
+//        }
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).offset(12)
@@ -188,10 +188,10 @@ class HomeHistoryDetailViewController: BaseViewController {
         descriptionLabel.text = history.description
         
         // 格式化时间
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .short
-        dateLabel.text = formatter.string(from: history.createdAt)
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .full
+//        formatter.timeStyle = .short
+//        dateLabel.text = formatter.string(from: history.createdAt)
         
         // 加载图片
         if let image = history.getImage() {
