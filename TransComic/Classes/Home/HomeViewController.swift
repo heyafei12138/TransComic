@@ -27,8 +27,8 @@ class HomeViewController: BaseViewController {
         view.isHidden = true
         
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "clock.arrow.circlepath")
-        imageView.tintColor = UIColor.hexString("#CCCCCC")
+        imageView.image = UIImage(named: "empty_icon")
+//        imageView.tintColor = UIColor.hexString("#CCCCCC")
         imageView.contentMode = .scaleAspectFit
         
         let titleLabel = UILabel()
@@ -37,25 +37,25 @@ class HomeViewController: BaseViewController {
         titleLabel.textColor = UIColor.hexString("#666666")
         titleLabel.textAlignment = .center
         
-        let descLabel = UILabel()
-        descLabel.text = "开始使用应用功能，记录将在这里显示"
-        descLabel.font = UIFont.systemFont(ofSize: 14)
-        descLabel.textColor = UIColor.hexString("#999999")
-        descLabel.textAlignment = .center
-        descLabel.numberOfLines = 0
-        
-        let actionButton = UIButton(type: .system)
-        actionButton.setTitle("去体验", for: .normal)
-        actionButton.setTitleColor(.white, for: .normal)
-        actionButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        actionButton.backgroundColor = LmainColor
-        actionButton.layer.cornerRadius = 20
-        actionButton.addTarget(self, action: #selector(emptyViewActionTapped), for: .touchUpInside)
+//        let descLabel = UILabel()
+//        descLabel.text = "开始使用应用功能，记录将在这里显示"
+//        descLabel.font = UIFont.systemFont(ofSize: 14)
+//        descLabel.textColor = UIColor.hexString("#999999")
+//        descLabel.textAlignment = .center
+//        descLabel.numberOfLines = 0
+//        
+//        let actionButton = UIButton(type: .system)
+//        actionButton.setTitle("去体验", for: .normal)
+//        actionButton.setTitleColor(.white, for: .normal)
+//        actionButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+//        actionButton.backgroundColor = LmainColor
+//        actionButton.layer.cornerRadius = 20
+//        actionButton.addTarget(self, action: #selector(emptyViewActionTapped), for: .touchUpInside)
         
         view.addSubview(imageView)
         view.addSubview(titleLabel)
-        view.addSubview(descLabel)
-        view.addSubview(actionButton)
+//        view.addSubview(descLabel)
+//        view.addSubview(actionButton)
         
         imageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -68,18 +68,18 @@ class HomeViewController: BaseViewController {
             make.top.equalTo(imageView.snp.bottom).offset(20)
         }
         
-        descLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(12)
-            make.left.right.equalToSuperview().inset(40)
-        }
-        
-        actionButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(descLabel.snp.bottom).offset(24)
-            make.width.equalTo(120)
-            make.height.equalTo(40)
-        }
+//        descLabel.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.top.equalTo(titleLabel.snp.bottom).offset(12)
+//            make.left.right.equalToSuperview().inset(40)
+//        }
+//        
+//        actionButton.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.top.equalTo(descLabel.snp.bottom).offset(24)
+//            make.width.equalTo(120)
+//            make.height.equalTo(40)
+//        }
         
         return view
     }()
@@ -112,15 +112,15 @@ class HomeViewController: BaseViewController {
             make.width.height.equalTo(32)
         }
         // VIP按钮
-        vipButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        vipButton.tintColor = UIColor.hexString("#FFD700")
-        vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
-        view.addSubview(vipButton)
-        vipButton.snp.makeConstraints { make in
-            make.centerY.equalTo(settingButton)
-            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
-            make.width.height.equalTo(32)
-        }
+//        vipButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+//        vipButton.tintColor = UIColor.white
+//        vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
+//        view.addSubview(vipButton)
+//        vipButton.snp.makeConstraints { make in
+//            make.centerY.equalTo(settingButton)
+//            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
+//            make.width.height.equalTo(32)
+//        }
         
         
         ImageView.image = UIImage(named: "katong_top")

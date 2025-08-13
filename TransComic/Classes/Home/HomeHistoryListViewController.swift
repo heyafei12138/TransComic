@@ -43,7 +43,7 @@ class HomeHistoryListViewController: BaseViewController {
         view.isHidden = true
         
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "clock.arrow.circlepath")
+        imageView.image = UIImage(named: "empty_icon")
         imageView.tintColor = UIColor.gray
         imageView.contentMode = .scaleAspectFit
         
