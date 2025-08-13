@@ -20,7 +20,7 @@ class TCImageLoadingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        transImage()
+        transImage()
     }
     func transImage(){
         let Helper = ImageTranslator()
@@ -28,7 +28,7 @@ class TCImageLoadingVC: UIViewController {
         Helper.batchTranslateNew(images: images) { images in
             let validImages = images.compactMap { $0 } // 过滤掉 nil
             self.transResults?(validImages)
-            self.dismiss(animated: false)
+            self.view.removeFromSuperview()
         }
         
         
@@ -146,7 +146,7 @@ class ImageTranslator {
   
     /// 批量图片翻译，限速每秒5张
     func batchTranslateNew(images: [UIImage], to: String = "zh-CHS", completion: @escaping ([UIImage?]) -> Void) {
-        let index = UserDefaults.standard.integer(forKey: "TransImageTargetLanguageIndex")
+        let index = UserDefaults.standard.integer(forKey: "SelectedLanguageCode")
         let toLanguage = targetlanguages[index].code
         var results: [UIImage?] = Array(repeating: nil, count: images.count)
         let queue = DispatchQueue(label: "translate.serial")

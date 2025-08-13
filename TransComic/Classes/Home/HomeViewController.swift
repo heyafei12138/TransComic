@@ -126,7 +126,7 @@ class HomeViewController: BaseViewController {
         ImageView.image = UIImage(named: "katong_top")
         view.addSubview(ImageView)
         ImageView.snp.makeConstraints { make in
-            make.top.equalTo(vipButton.snp.bottom).offset(-20)
+            make.top.equalTo(settingButton.snp.bottom).offset(-20)
             make.left.equalToSuperview().offset(20)
             make.width.equalTo(kScreenW - 100)
             make.height.equalTo((kScreenW - 100)/1.8)
