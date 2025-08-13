@@ -9,3 +9,4 @@ import Foundation
 
 
 let TCGroupID = "group.TranslationComic"
+let TCAppID = "6749008967"

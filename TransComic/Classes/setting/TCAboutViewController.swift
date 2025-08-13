@@ -40,7 +40,7 @@ class TCAboutViewController: BaseViewController {
     // MARK: - Setup
     func setupUI() {
         
-        title = "关于我们"
+        title = "关于我们".localized()
         view.backgroundColor = UIColor.hexString("#F8F9FA")
         
         setupScrollView()
@@ -55,7 +55,8 @@ class TCAboutViewController: BaseViewController {
         scrollView.addSubview(contentView)
         
         scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.left.right.bottom.equalTo(view)
+            make.top.equalTo(customNav.snp.bottom)
         }
         
         contentView.snp.makeConstraints { make in
@@ -66,7 +67,7 @@ class TCAboutViewController: BaseViewController {
     
     private func setupAppInfoSection() {
         // 应用图标
-        appIconImageView.image = UIImage(named: "AppIcon")
+        appIconImageView.image = UIImage(named: "AppIcon01")
         appIconImageView.contentMode = .scaleAspectFit
         appIconImageView.layer.cornerRadius = 20
         appIconImageView.clipsToBounds = true
@@ -121,13 +122,13 @@ class TCAboutViewController: BaseViewController {
         
         developerTitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         developerTitleLabel.textColor = UIColor.hexString("#333333")
-        developerTitleLabel.text = "开发者信息"
+        developerTitleLabel.text = "开发者信息".localized()
         developerSection.addSubview(developerTitleLabel)
         
         developerInfoLabel.font = UIFont.systemFont(ofSize: 16)
         developerInfoLabel.textColor = UIColor.hexString("#666666")
         developerInfoLabel.numberOfLines = 0
-        developerInfoLabel.text = "TransComic 团队\n致力于为用户提供优质的翻译体验"
+        developerInfoLabel.text = "TransComic 团队\n致力于为用户提供优质的翻译体验".localized()
         developerSection.addSubview(developerInfoLabel)
         
         developerSection.snp.makeConstraints { make in
@@ -154,17 +155,16 @@ class TCAboutViewController: BaseViewController {
         
         contactTitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         contactTitleLabel.textColor = UIColor.hexString("#333333")
-        contactTitleLabel.text = "联系我们"
+        contactTitleLabel.text = "联系我们".localized()
         contactSection.addSubview(contactTitleLabel)
         
         emailLabel.font = UIFont.systemFont(ofSize: 16)
         emailLabel.textColor = UIColor.hexString("#666666")
-        emailLabel.text = "邮箱：contact@transcomic.com"
+        emailLabel.text = "邮箱：".localized() + "kele221070@163.com"
         contactSection.addSubview(emailLabel)
         
         websiteLabel.font = UIFont.systemFont(ofSize: 16)
         websiteLabel.textColor = UIColor.hexString("#666666")
-        websiteLabel.text = "官网：www.transcomic.com"
         contactSection.addSubview(websiteLabel)
         
         contactSection.snp.makeConstraints { make in
@@ -212,6 +212,6 @@ class TCAboutViewController: BaseViewController {
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"
         versionLabel.text = "版本 \(version) (\(build))"
         
-        descriptionLabel.text = "一款强大的翻译工具，支持动漫翻译、网页翻译、图片识别等多种功能，为用户提供便捷的翻译体验。"
+        descriptionLabel.text = "一款强大的翻译工具，支持动漫翻译、网页翻译、图片识别等多种功能，为用户提供便捷的翻译体验。".localized()
     }
 }

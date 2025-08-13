@@ -68,7 +68,7 @@ class TCLanguageManager {
             completion(false)
             return
         }
-        
+        Localize.setCurrentLanguage(languageCode)
         // 保存新语言设置
         currentLanguage = languageCode
         

@@ -27,7 +27,7 @@ class TCSettingViewController: BaseViewController {
     func setupUI() {
         
         
-        title = "设置"
+        title = "设置".localized()
         view.backgroundColor = UIColor.hexString("#F8F9FA")
         
         setupTableView()
@@ -44,7 +44,8 @@ class TCSettingViewController: BaseViewController {
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.bottom.left.right.equalToSuperview()
+            make.top.equalTo(customNav.snp.bottom)
         }
     }
     
@@ -52,20 +53,20 @@ class TCSettingViewController: BaseViewController {
         settingData = [
             // 通用设置
             [
-                TCSettingItem(title: "应用语言", subtitle: getCurrentLanguageText(), icon: "globe", type: .language),
-                TCSettingItem(title: "清除缓存", subtitle: getCacheSizeText(), icon: "trash", type: .clearCache)
+                TCSettingItem(title: "应用语言".localized(), subtitle: getCurrentLanguageText(), icon: "globe", type: .language),
+                
             ],
             // 应用相关
             [
-                TCSettingItem(title: "分享给好友", subtitle: "推荐给朋友使用", icon: "square.and.arrow.up", type: .share),
-                TCSettingItem(title: "给个好评", subtitle: "在App Store评分", icon: "star.fill", type: .rate),
-                TCSettingItem(title: "意见反馈", subtitle: "帮助我们改进", icon: "envelope", type: .feedback)
+                TCSettingItem(title: "分享给好友".localized(), subtitle: "推荐给朋友使用".localized(), icon: "square.and.arrow.up", type: .share),
+                TCSettingItem(title: "给个好评".localized(), subtitle: "在App Store评分".localized(), icon: "star.fill", type: .rate),
+                TCSettingItem(title: "意见反馈".localized(), subtitle: "帮助我们改进".localized(), icon: "envelope", type: .feedback)
             ],
             // 关于
             [
-                TCSettingItem(title: "隐私政策", subtitle: "了解隐私保护", icon: "hand.raised.fill", type: .privacy),
-                TCSettingItem(title: "用户协议", subtitle: "使用条款说明", icon: "doc.text", type: .terms),
-                TCSettingItem(title: "关于我们", subtitle: "版本 \(getAppVersion())", icon: "info.circle", type: .about)
+                TCSettingItem(title: "隐私政策".localized(), subtitle: "了解隐私保护".localized(), icon: "hand.raised.fill", type: .privacy),
+                TCSettingItem(title: "用户协议".localized(), subtitle: "使用条款说明".localized(), icon: "doc.text", type: .terms),
+                TCSettingItem(title: "关于我们".localized(), subtitle: "v \(getAppVersion())", icon: "info.circle", type: .about)
             ]
         ]
         
@@ -110,7 +111,7 @@ class TCSettingViewController: BaseViewController {
     }
     
     private func showLanguageSelection() {
-        let alert = UIAlertController(title: "选择语言", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "选择语言".localized(), message: nil, preferredStyle: .actionSheet)
         
         let languages = TCLanguageManager.shared.availableLanguages
         
@@ -121,49 +122,27 @@ class TCSettingViewController: BaseViewController {
             alert.addAction(action)
         }
         
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel)
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
     }
     
     private func changeLanguage(to languageCode: String) {
-        TCLanguageManager.shared.changeLanguage(to: languageCode) { [weak self] success in
-            DispatchQueue.main.async {
-                if success {
-                    let alert = UIAlertController(
-                        title: "语言已更改",
-                        message: "语言设置已更新，部分内容将在下次启动时生效",
-                        preferredStyle: .alert
-                    )
-                    let okAction = UIAlertAction(title: "确定", style: .default) { _ in
-                        self?.loadSettingData() // 刷新显示
-                    }
-                    alert.addAction(okAction)
-                    self?.present(alert, animated: true)
-                } else {
-                    let alert = UIAlertController(
-                        title: "语言更改失败",
-                        message: "无法切换到所选语言，请重试",
-                        preferredStyle: .alert
-                    )
-                    let okAction = UIAlertAction(title: "确定", style: .default)
-                    alert.addAction(okAction)
-                    self?.present(alert, animated: true)
-                }
-            }
+        TCLanguageManager.shared.changeLanguage(to: languageCode) {success in
+            kWindow?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         }
     }
     
     private func showClearCacheAlert() {
-        let alert = UIAlertController(title: "清除缓存", message: "确定要清除所有缓存数据吗？", preferredStyle: .alert)
+        let alert = UIAlertController(title: "清除缓存".localized(), message: "确定要清除所有缓存数据吗？".localized(), preferredStyle: .alert)
         
-        let clearAction = UIAlertAction(title: "清除", style: .destructive) { _ in
+        let clearAction = UIAlertAction(title: "清除".localized(), style: .destructive) { _ in
             self.clearCache()
         }
         alert.addAction(clearAction)
         
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel)
+        let cancelAction = UIAlertAction(title: "取消".localized(), style: .cancel)
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
@@ -171,18 +150,18 @@ class TCSettingViewController: BaseViewController {
     
     private func clearCache() {
         // 显示加载指示器
-        let loadingAlert = UIAlertController(title: "正在清除缓存", message: "请稍候...", preferredStyle: .alert)
+        let loadingAlert = UIAlertController(title: "正在清除缓存".localized(), message: "请稍候...".localized(), preferredStyle: .alert)
         present(loadingAlert, animated: true)
         
         TCCacheManager.shared.clearAllCache { [weak self] success, message in
             DispatchQueue.main.async {
                 loadingAlert.dismiss(animated: true) {
                     let resultAlert = UIAlertController(
-                        title: success ? "清除完成" : "清除失败",
+                        title: success ? "清除完成".localized() : "清除失败".localized(),
                         message: message,
                         preferredStyle: .alert
                     )
-                    let okAction = UIAlertAction(title: "确定", style: .default) { _ in
+                    let okAction = UIAlertAction(title: "确定".localized(), style: .default) { _ in
                         if success {
                             self?.loadSettingData() // 刷新显示
                         }
@@ -196,10 +175,10 @@ class TCSettingViewController: BaseViewController {
     
     private func shareApp() {
         let appName = "TransComic"
-        let appDescription = "一款强大的翻译工具，支持动漫翻译、网页翻译等功能"
-        let appStoreURL = "https://apps.apple.com/app/transcomic/id123456789"
+        let appDescription = "一款强大的翻译工具，支持动漫翻译、网页翻译等功能".localized()
+        let appStoreURL = "https://apps.apple.com/app/transcomic/id\(TCAppID)"
         
-        let shareText = "\(appName)\n\(appDescription)\n下载地址：\(appStoreURL)"
+        let shareText = "\(appName)\n\(appDescription)\n\(appStoreURL)"
         
         let activityVC = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
         
@@ -227,26 +206,26 @@ class TCSettingViewController: BaseViewController {
         if MFMailComposeViewController.canSendMail() {
             let mailVC = MFMailComposeViewController()
             mailVC.mailComposeDelegate = self
-            mailVC.setToRecipients(["feedback@transcomic.com"])
-            mailVC.setSubject("TransComic 意见反馈")
-            mailVC.setMessageBody("请描述您遇到的问题或建议：\n\n", isHTML: false)
+            mailVC.setToRecipients(["kele221070@163.com"])
+            mailVC.setSubject("TransComic")
+            mailVC.setMessageBody("请描述您遇到的问题或建议：\n\n".localized(), isHTML: false)
             
             present(mailVC, animated: true)
         } else {
-            let alert = UIAlertController(title: "无法发送邮件", message: "请检查邮件设置或直接联系我们", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "确定", style: .default)
+            let alert = UIAlertController(title: "无法发送邮件".localized(), message: "请检查邮件设置或直接联系我们".localized(), preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "确定".localized(), style: .default)
             alert.addAction(okAction)
             present(alert, animated: true)
         }
     }
     
     private func showPrivacyPolicy() {
-        let privacyVC = TCWebViewController(title: "隐私政策", urlString: "https://transcomic.com/privacy")
+        let privacyVC = TCWebViewController(title: "隐私政策".localized(), urlString: "https://sleep.leaphealth.fitness/privacypolicy.html")
         navigationController?.pushViewController(privacyVC, animated: true)
     }
     
     private func showTermsOfService() {
-        let termsVC = TCWebViewController(title: "用户协议", urlString: "https://transcomic.com/terms")
+        let termsVC = TCWebViewController(title: "技术支持".localized(), urlString: "https://docs.qq.com/doc/DVEZZb0dKRkRqa09x")
         navigationController?.pushViewController(termsVC, animated: true)
     }
     
@@ -282,7 +261,7 @@ extension TCSettingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "TCSettingHeaderView") as! TCSettingHeaderView
         
-        let titles = ["通用设置", "应用相关", "关于"]
+        let titles = ["通用设置".localized(), "应用相关".localized(), "关于".localized()]
         headerView.configure(title: titles[section])
         
         return headerView
@@ -302,8 +281,8 @@ extension TCSettingViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true) {
             if result == .sent {
-                let alert = UIAlertController(title: "发送成功", message: "感谢您的反馈，我们会认真处理", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "确定", style: .default)
+                let alert = UIAlertController(title: "Success", message: "Thank you for your feedback", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Done", style: .default)
                 alert.addAction(okAction)
                 self.present(alert, animated: true)
             }
