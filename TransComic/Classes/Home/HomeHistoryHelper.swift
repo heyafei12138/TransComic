@@ -15,7 +15,7 @@ class HomeHistoryHelper {
     static func addAnimeTranslationHistory(title: String, image: UIImage? = nil, description: String) {
         let history = HomeHistoryModel(
             title: title,
-            category: "动漫翻译",
+            category: "动漫翻译".localized(),
             image: image,
             description: description
         )
@@ -26,7 +26,7 @@ class HomeHistoryHelper {
     static func addImageRecognitionHistory(title: String, image: UIImage? = nil, description: String) {
         let history = HomeHistoryModel(
             title: title,
-            category: "图片识别",
+            category: "图片识别".localized(),
             image: image,
             description: description
         )
@@ -37,7 +37,7 @@ class HomeHistoryHelper {
     static func addWebTranslationHistory(title: String, image: UIImage? = nil, description: String) {
         let history = HomeHistoryModel(
             title: title,
-            category: "网页翻译",
+            category: "网页翻译".localized(),
             image: image,
             description: description
         )
@@ -48,7 +48,7 @@ class HomeHistoryHelper {
     static func addScreenshotHistory(title: String, image: UIImage? = nil, description: String) {
         let history = HomeHistoryModel(
             title: title,
-            category: "网页截屏",
+            category: "网页截屏".localized(),
             image: image,
             description: description
         )

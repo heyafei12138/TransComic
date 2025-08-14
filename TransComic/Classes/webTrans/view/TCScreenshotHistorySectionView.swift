@@ -28,7 +28,7 @@ class TCScreenshotHistorySectionView: UIView {
         titleLabel.textColor = black
         
         let moreButton = UIButton(type: .system)
-        moreButton.setTitle("查看更多", for: .normal)
+        moreButton.setTitle("查看更多 >".localized(), for: .normal)
         moreButton.setTitleColor(mainColor, for: .normal)
         moreButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)

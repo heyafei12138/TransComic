@@ -5,3 +5,169 @@
   Created by hebert on 2025/8/11.
   
 */
+
+// MARK: - Generale
+"Cancel" = "Annulla";
+"确定" = "OK";
+"重试" = "Riprova";
+"清除" = "Cancella";
+"分享" = "Condividi";
+"保存" = "Salva";
+"删除" = "Elimina";
+"编辑" = "Modifica";
+"完成" = "Fatto";
+"返回" = "Indietro";
+"下一步" = "Avanti";
+"上一步" = "Precedente";
+"关闭" = "Chiudi";
+"打开" = "Apri";
+"是" = "Sì";
+"否" = "No";
+"成功" = "Successo";
+"失败" = "Fallito";
+"错误" = "Errore";
+"警告" = "Avviso";
+"提示" = "Suggerimento";
+"加载中" = "Caricamento";
+"请稍候" = "Attendere prego";
+"正在处理" = "Elaborazione in corso";
+
+// MARK: - Navigazione e titoli
+"设置" = "Impostazioni";
+"关于我们" = "Chi siamo";
+"历史记录" = "Cronologia";
+"快捷翻译漫画" = "Traduzione rapida di fumetti";
+"网页生番翻译" = "Traduzione di pagine web";
+"快捷翻译使用指南" = "Guida all'uso della traduzione rapida";
+"一键快捷翻译漫画" = "Traduzione di fumetti con un clic";
+
+// MARK: - Descrizioni delle funzionalità
+"一键翻译动漫台词，支持多语言。" = "Traduzione con un clic dei dialoghi degli anime con supporto multilingue.";
+"网页直达，轻松愉悦。" = "Accesso diretto alle pagine web, semplice e piacevole.";
+"设置快捷指令，轻击手机背面/单击触控实现全屏幕翻译，一次设置永久畅享。" = "Configura scorciatoie, tocca la parte posteriore del telefono o clicca sul controllo touch per la traduzione a schermo intero. Configura una volta, godi per sempre.";
+"一款强大的翻译工具，支持动漫翻译、网页翻译、图片识别等多种功能，为用户提供便捷的翻译体验。" = "Un potente strumento di traduzione che supporta la traduzione di anime, la traduzione web, il riconoscimento delle immagini e molto altro, offrendo agli utenti un'esperienza di traduzione conveniente.";
+"一款强大的翻译工具，支持动漫翻译、网页翻译等功能" = "Un potente strumento di traduzione che supporta la traduzione di anime, la traduzione web e altre funzionalità";
+
+// MARK: - Impostazioni
+"应用语言" = "Lingua dell'app";
+"语言设置" = "Impostazioni lingua";
+"目标语言:" = "Lingua di destinazione:";
+"选择目标语言" = "Seleziona lingua di destinazione";
+"选择语言" = "Seleziona lingua";
+"分享给好友" = "Condividi con amici";
+"推荐给朋友使用" = "Raccomanda agli amici";
+"给个好评" = "Valutaci";
+"在App Store评分" = "Valuta su App Store";
+"意见反馈" = "Feedback";
+"帮助我们改进" = "Aiutaci a migliorare";
+"隐私政策" = "Informativa sulla privacy";
+"了解隐私保护" = "Scopri la protezione della privacy";
+"用户协议" = "Termini di utilizzo";
+"使用条款说明" = "Termini e condizioni";
+"清除缓存" = "Cancella cache";
+"确定要清除所有缓存数据吗？" = "Sei sicuro di voler cancellare tutti i dati della cache?";
+"正在清除缓存" = "Cancellazione cache in corso";
+"请稍候..." = "Attendere prego...";
+"清除完成" = "Cancellazione completata";
+"清除失败" = "Cancellazione fallita";
+"缓存清除成功" = "Cache cancellata con successo";
+
+// MARK: - Nomi delle lingue
+"简体中文" = "Cinese semplificato";
+"中文繁体" = "Cinese tradizionale";
+"英语" = "Inglese";
+"日语" = "Giapponese";
+"韩语" = "Coreano";
+"阿拉伯语" = "Arabo";
+"德语" = "Tedesco";
+"西班牙语" = "Spagnolo";
+"法语" = "Francese";
+"印地语" = "Hindi";
+"印度尼西亚语" = "Indonesiano";
+"意大利语" = "Italiano";
+"荷兰语" = "Olandese";
+"葡萄牙语" = "Portoghese";
+"俄语" = "Russo";
+"泰语" = "Tailandese";
+"越南语" = "Vietnamita";
+"日本語" = "日本語";
+"한국어" = "한국어";
+"Français" = "Français";
+"Deutsch" = "Deutsch";
+"Español" = "Español";
+"Italiano" = "Italiano";
+
+// MARK: - Configurazione scorciatoie
+"我该怎么做" = "Cosa devo fare?";
+"方式一：双击背面触发（推荐）" = "Metodo 1: Doppio tap posteriore (Raccomandato)";
+"方式二：辅助触控按钮触发" = "Metodo 2: Attivazione tramite pulsante touch di assistenza";
+"重要提示：" = "Note importanti:";
+"启动快捷翻译" = "Avvia traduzione rapida";
+
+// MARK: - Passaggi delle scorciatoie
+"1. 打开 系统设置 → 辅助功能 → 触控 → 轻点背面" = "1. Apri Impostazioni sistema → Accessibilità → Touch → Tap posteriore";
+"2. 选择 轻点两下" = "2. Seleziona Doppio tap";
+"3. 下拉到底部 快捷指令 区域" = "3. Scorri verso il basso fino alla sezione Scorciatoie";
+"4. 勾选 translationComic" = "4. Spunta translationComic";
+"5. 使用：双击手机背面两下启动屏翻" = "5. Utilizzo: Doppio tap sulla parte posteriore del telefono per avviare la traduzione dello schermo";
+"1. 打开 系统设置 → 辅助功能 → 触控 → 辅助触控" = "1. Apri Impostazioni sistema → Accessibilità → Touch → Pulsante di assistenza";
+"2. 开启 辅助触控 开关" = "2. Attiva Pulsante di assistenza";
+"3. 选择 轻点一下" = "3. Seleziona Tap singolo";
+"4. 下拉到底部 快捷指令 区域" = "4. Scorri verso il basso fino alla sezione Scorciatoie";
+"5. 勾选 translationComic" = "5. Spunta translationComic";
+"6. 使用：单击屏幕悬浮按钮启动屏翻" = "6. Utilizzo: Tocca il pulsante fluttuante sullo schermo per avviare la traduzione";
+"• 确保快捷指令名称为 " = "• Assicurati che il nome della scorciatoia sia ";
+
+// MARK: - Cronologia
+"暂无历史记录" = "Nessuna cronologia";
+"查看更多 >" = "Vedi altro >";
+"快捷指令翻译" = "Traduzione scorciatoia";
+"指令翻译" = "Traduzione comando";
+
+// MARK: - Traduzione web
+"无效的URL地址" = "Indirizzo URL non valido";
+"加载失败" = "Caricamento fallito";
+"页面加载失败：" = "Caricamento pagina fallito: ";
+
+// MARK: - Relativo alle immagini
+"没有相册权限" = "Nessuna autorizzazione per la libreria foto";
+"截图失败: " = "Screenshot fallito: ";
+"截图成功" = "Screenshot riuscito";
+
+// MARK: - Pagina Chi siamo
+"开发者信息" = "Informazioni sviluppatori";
+"TransComic 团队\n致力于为用户提供优质的翻译体验" = "Team TransComic\nImpegnato a fornire agli utenti un'esperienza di traduzione di qualità";
+"联系我们" = "Contattaci";
+"邮箱：" = "Email: ";
+"版本 " = "Versione ";
+"© 2025 TransComic. All rights reserved.\n感谢您的使用！" = "© 2025 TransComic. Tutti i diritti riservati.\nGrazie per l'utilizzo!";
+
+// MARK: - Condivisione e feedback
+"请描述您遇到的问题或建议：\n\n" = "Descrivi il problema riscontrato o i suggerimenti:\n\n";
+"无法发送邮件" = "Impossibile inviare email";
+"请检查邮件设置或直接联系我们" = "Controlla le impostazioni email o contattaci direttamente";
+
+// MARK: - Altro
+"translationComic" = "translationComic";
+"分享成功" = "Condivisione riuscita";
+"找不到本地视频文件" = "File video locale non trovato";
+"立即开始" = "Inizia subito";
+"正在截屏中…（点击取消）" = "Cattura schermo in corso… (clicca per annullare)";
+"截屏完成，共截取" = "Cattura completata, in totale";
+"张图片" = "immagini";
+"翻译中，请等待..." = "Traduzione in corso, attendere...";
+"清空历史记录" = "Svuota cronologia";
+"确定要清空所有截屏历史记录吗？此操作不可恢复。" = "Sei sicuro di voler svuotare tutta la cronologia degli screenshot? Questa azione non può essere annullata.";
+"删除记录" = "Elimina record";
+"确定要删除这条截屏记录吗？" = "Sei sicuro di voler eliminare questo record di screenshot?";
+"通用设置" = "Impostazioni generali";
+"应用相关" = "Informazioni sull'app";
+"关于" = "Informazioni";
+"网页截屏" = "Screenshot Web";
+"分类" = "Categoria";
+"历史详情" = "Dettagli cronologia";
+"保存到相册" = "Salva nell'album";
+"立即翻译" = "Traduci ora";
+"查看图片" = "Visualizza immagine";
+"请输入网址" = "Inserisci un URL";
+"前往" = "Vai";

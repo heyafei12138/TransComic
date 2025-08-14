@@ -33,7 +33,7 @@ class TCWebsitesSectionView: UIView {
     // MARK: - UI Components
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        label.font = middleFont(fontSize: 18)
         label.textColor = black
         return label
     }()
@@ -56,7 +56,7 @@ class TCWebsitesSectionView: UIView {
     
     private lazy var emptyLabel: UILabel = {
         let label = UILabel()
-        label.text = "暂无数据"
+        label.text = "暂无数据".localized()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.gray
         label.textAlignment = .center

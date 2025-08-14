@@ -77,6 +77,7 @@ class TCSettingCell: UITableViewCell {
             make.left.equalTo(titleLabel)
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
             make.right.equalTo(titleLabel)
+            make.height.equalTo(18)
             make.bottom.equalToSuperview().offset(-12)
         }
         

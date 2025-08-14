@@ -5,3 +5,196 @@
   Created by hebert on 2025/8/11.
   
 */
+
+// MARK: - Common
+"Cancel" = "Cancel";
+"确定" = "OK";
+"重试" = "Retry";
+"清除" = "Clear";
+"分享" = "Share";
+"保存" = "Save";
+"删除" = "Delete";
+"编辑" = "Edit";
+"完成" = "Done";
+"返回" = "Back";
+"下一步" = "Next";
+"上一步" = "Previous";
+"关闭" = "Close";
+"打开" = "Open";
+"是" = "Yes";
+"否" = "No";
+"成功" = "Success";
+"失败" = "Failed";
+"错误" = "Error";
+"警告" = "Warning";
+"提示" = "Tip";
+"加载中" = "Loading";
+"请稍候" = "Please wait";
+"正在处理" = "Processing";
+
+// MARK: - Navigation and Titles
+"设置" = "Settings";
+"关于我们" = "About Us";
+"历史记录" = "History";
+"快捷翻译漫画" = "Quick Comic Translation";
+"网页生番翻译" = "Web Page Translation";
+"快捷翻译使用指南" = "Quick Translation Guide";
+"一键快捷翻译漫画" = "One-Click Comic Translation";
+"截屏" = "Screenshot";
+"截屏详情" = "Screenshot Details";
+"截屏历史" = "Screenshot History";
+"网页翻译" = "Web Translation";
+"常用网址" = "Common Websites";
+"收藏网址" = "Favorite Websites";
+"收藏" = "Favorite";
+"已收藏" = "Favorited";
+"未收藏" = "Not Favorited";
+"未知网站" = "Unknown Website";
+
+// MARK: - Feature Descriptions
+"一键翻译动漫台词，支持多语言。" = "One-click translation of anime dialogue with multi-language support.";
+"网页直达，轻松愉悦。" = "Direct web access, easy and enjoyable.";
+"设置快捷指令，轻击手机背面/单击触控实现全屏幕翻译，一次设置永久畅享。" = "Set up shortcuts, tap the back of your phone or click the touch control for full-screen translation. Set once, enjoy forever.";
+"一款强大的翻译工具，支持动漫翻译、网页翻译、图片识别等多种功能，为用户提供便捷的翻译体验。" = "A powerful translation tool supporting anime translation, web translation, image recognition and more, providing users with convenient translation experience.";
+"一款强大的翻译工具，支持动漫翻译、网页翻译等功能" = "A powerful translation tool supporting anime translation, web translation and other features";
+"下载地址：" = "Download Link: ";
+
+// MARK: - Settings
+"应用语言" = "App Language";
+"语言设置" = "Language Settings";
+"目标语言:" = "Target Language:";
+"选择目标语言" = "Select Target Language";
+"选择语言" = "Select Language";
+"分享给好友" = "Share with Friends";
+"推荐给朋友使用" = "Recommend to friends";
+"给个好评" = "Rate Us";
+"在App Store评分" = "Rate on App Store";
+"意见反馈" = "Feedback";
+"帮助我们改进" = "Help us improve";
+"隐私政策" = "Privacy Policy";
+"了解隐私保护" = "Learn about privacy protection";
+"用户协议" = "Terms of Service";
+"使用条款说明" = "Terms and conditions";
+"清除缓存" = "Clear Cache";
+"确定要清除所有缓存数据吗？" = "Are you sure you want to clear all cached data?";
+"正在清除缓存" = "Clearing cache";
+"请稍候..." = "Please wait...";
+"清除完成" = "Clear completed";
+"清除失败" = "Clear failed";
+"缓存清除成功" = "Cache cleared successfully";
+
+// MARK: - Language Names
+"简体中文" = "Simplified Chinese";
+"中文繁体" = "Traditional Chinese";
+"英语" = "English";
+"日语" = "Japanese";
+"韩语" = "Korean";
+"阿拉伯语" = "Arabic";
+"德语" = "German";
+"西班牙语" = "Spanish";
+"法语" = "French";
+"印地语" = "Hindi";
+"印度尼西亚语" = "Indonesian";
+"意大利语" = "Italian";
+"荷兰语" = "Dutch";
+"葡萄牙语" = "Portuguese";
+"俄语" = "Russian";
+"泰语" = "Thai";
+"越南语" = "Vietnamese";
+"日本語" = "日本語";
+"한국어" = "한국어";
+"Français" = "Français";
+"Deutsch" = "Deutsch";
+"Español" = "Español";
+"Italiano" = "Italiano";
+
+// MARK: - Shortcut Setup
+"我该怎么做" = "What should I do?";
+"方式一：双击背面触发（推荐）" = "Method 1: Double-tap back (Recommended)";
+"方式二：辅助触控按钮触发" = "Method 2: Assistive Touch button trigger";
+"重要提示：" = "Important Notes:";
+"启动快捷翻译" = "Start Quick Translation";
+
+// MARK: - Shortcut Steps
+"1. 打开 系统设置 → 辅助功能 → 触控 → 轻点背面" = "1. Open System Settings → Accessibility → Touch → Back Tap";
+"2. 选择 轻点两下" = "2. Select Double Tap";
+"3. 下拉到底部 快捷指令 区域" = "3. Scroll down to Shortcuts section";
+"4. 勾选 translationComic" = "4. Check translationComic";
+"5. 使用：双击手机背面两下启动屏翻" = "5. Usage: Double-tap the back of your phone to start screen translation";
+"1. 打开 系统设置 → 辅助功能 → 触控 → 辅助触控" = "1. Open System Settings → Accessibility → Touch → Assistive Touch";
+"2. 开启 辅助触控 开关" = "2. Turn on Assistive Touch";
+"3. 选择 轻点一下" = "3. Select Single Tap";
+"4. 下拉到底部 快捷指令 区域" = "4. Scroll down to Shortcuts section";
+"5. 勾选 translationComic" = "5. Check translationComic";
+"6. 使用：单击屏幕悬浮按钮启动屏翻" = "6. Usage: Tap the floating button on screen to start translation";
+"• 确保快捷指令名称为 " = "• Make sure the shortcut name is ";
+
+// MARK: - History
+"暂无历史记录" = "No history records";
+"查看更多 >" = "View More >";
+"快捷指令翻译" = "Shortcut Translation";
+"指令翻译" = "Command Translation";
+"暂无截屏历史记录" = "No screenshot history";
+"总计" = "Total";
+"存储" = "Storage";
+"全部" = "All";
+"清空" = "Clear";
+
+"删除记录" = "Delete Record";
+"确定要删除这条截屏记录吗？" = "Are you sure you want to delete this screenshot record?";
+
+// MARK: - Web Translation
+"无效的URL地址" = "Invalid URL address";
+"加载失败" = "Load failed";
+"页面加载失败：" = "Page load failed: ";
+"截屏失败" = "Screenshot failed";
+"保存成功" = "Save successful";
+"图片已保存到相册" = "Image saved to photo album";
+"截屏已保存到相册" = "Screenshot saved to photo album";
+"保存失败" = "Save failed";
+"未知错误" = "Unknown error";
+
+// MARK: - Image Related
+"没有相册权限" = "No photo library permission";
+"截图失败: " = "Screenshot failed: ";
+"截图成功" = "Screenshot successful";
+
+// MARK: - About Page
+"开发者信息" = "Developer Information";
+"TransComic 团队\n致力于为用户提供优质的翻译体验" = "TransComic Team\nCommitted to providing users with quality translation experience";
+"联系我们" = "Contact Us";
+"邮箱：" = "Email: ";
+"版本 " = "Version ";
+"© 2025 TransComic. All rights reserved.\n感谢您的使用！" = "© 2025 TransComic. All rights reserved.\nThank you for using!";
+
+// MARK: - Share and Feedback
+"请描述您遇到的问题或建议：\n\n" = "Please describe the issue you encountered or suggestions:\n\n";
+"无法发送邮件" = "Unable to send email";
+"请检查邮件设置或直接联系我们" = "Please check email settings or contact us directly";
+
+// MARK: - Others
+"translationComic" = "translationComic";
+"分享成功" = "Share successful";
+"找不到本地视频文件" = "Local video file not found";
+"张" = "pcs";
+
+"立即开始" = "Start Now";
+"正在截屏中…（点击取消）" = "Capturing Screenshots… (Tap to Cancel)";
+"截屏完成，共截取" = "Screenshot Complete, Total Captured";
+"张图片" = "Images";
+"翻译中，请等待..." = "Translating, Please Wait...";
+"清空历史记录" = "Clear History";
+"确定要清空所有截屏历史记录吗？此操作不可恢复。" = "Are you sure you want to clear all screenshot history? This action cannot be undone.";
+"删除记录" = "Delete Record";
+"确定要删除这条截屏记录吗？" = "Are you sure you want to delete this screenshot record?";
+"通用设置" = "General Settings";
+"应用相关" = "About the App";
+"关于" = "About";
+"网页截屏" = "Web Screenshot";
+"分类" = "Category";
+"历史详情" = "History Details";
+"保存到相册" = "Save to Album";
+"立即翻译" = "Translate Now";
+"查看图片" = "View Image";
+"请输入网址" = "Please enter a URL";
+"前往" = "Go";

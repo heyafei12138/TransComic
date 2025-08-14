@@ -27,7 +27,7 @@ class HomeHistoryListViewController: BaseViewController {
     }()
     
     private lazy var categorySegmentControl: UISegmentedControl = {
-        let categories = ["全部"] + HomeHistoryManager.shared.getCategories()
+        let categories = ["全部".localized()] + HomeHistoryManager.shared.getCategories()
         let segmentControl = UISegmentedControl(items: categories)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.backgroundColor = UIColor.white
@@ -48,7 +48,7 @@ class HomeHistoryListViewController: BaseViewController {
         imageView.contentMode = .scaleAspectFit
         
         let label = UILabel()
-        label.text = "暂无历史记录"
+        label.text = "暂无历史记录".localized()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.gray
         label.textAlignment = .center
@@ -80,7 +80,7 @@ class HomeHistoryListViewController: BaseViewController {
         view.layer.shadowRadius = 4
         
         let totalLabel = UILabel()
-        totalLabel.text = "总计"
+        totalLabel.text = "总计".localized()
         totalLabel.font = UIFont.systemFont(ofSize: 14)
         totalLabel.textColor = UIColor.gray
         
@@ -89,7 +89,7 @@ class HomeHistoryListViewController: BaseViewController {
         totalCountLabel.textColor = mainColor
         
         let categoryLabel = UILabel()
-        categoryLabel.text = "分类"
+        categoryLabel.text = "分类".localized()
         categoryLabel.font = UIFont.systemFont(ofSize: 14)
         categoryLabel.textColor = UIColor.gray
         
@@ -116,6 +116,7 @@ class HomeHistoryListViewController: BaseViewController {
         categoryLabel.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-16)
             make.top.equalToSuperview().offset(12)
+            make.height.equalTo(15)
         }
         
         categoryCountLabel.snp.makeConstraints { make in
@@ -133,7 +134,7 @@ class HomeHistoryListViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "历史记录"
+        title = "历史记录".localized()
         setupNavigationBar()
         setupUI()
     }
@@ -208,8 +209,8 @@ class HomeHistoryListViewController: BaseViewController {
         let totalCount = HomeHistoryManager.shared.getTotalCount()
         let categoryCount = HomeHistoryManager.shared.getCategories().count
         
-        totalCountLabel.text = "\(totalCount) 条"
-        categoryCountLabel.text = "\(categoryCount) 个"
+        totalCountLabel.text = "\(totalCount) "
+        categoryCountLabel.text = "\(categoryCount) "
     }
     
     // MARK: - Actions
@@ -227,7 +228,7 @@ class HomeHistoryListViewController: BaseViewController {
     }
     
     private func showClearConfirmation() {
-        let alert = UIAlertController(title: "清空历史记录".localized(), message: "确定要清空所有历史记录吗？此操作不可恢复。".localized(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "清空历史记录".localized(), message: "确定要清空所有截屏历史记录吗？此操作不可恢复。".localized(), preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "取消".localized(), style: .cancel))
         alert.addAction(UIAlertAction(title: "清空".localized(), style: .destructive) { [weak self] _ in

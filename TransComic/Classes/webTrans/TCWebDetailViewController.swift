@@ -118,7 +118,7 @@ class TCWebDetailViewController: BaseViewController {
     }
     
     private func setupNavigationBar() {
-        customNav.setRightButton(title: "收藏", titleColor: mainColor)
+        customNav.setRightButton(title: "收藏".localized(), titleColor: mainColor)
         customNav.rightButtonAction = { [weak self] in
             self?.toggleFavorite()
         }
@@ -180,7 +180,7 @@ class TCWebDetailViewController: BaseViewController {
     }
     
     private func updateFavoriteButton() {
-        let title = isFavorite ? "已收藏" : "收藏"
+        let title = isFavorite ? "已收藏".localized() : "收藏".localized()
         let color = isFavorite ? UIColor.gray : mainColor
         customNav.setRightButton(title: title, titleColor: color)
         
@@ -413,7 +413,7 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
         guard !images.isEmpty else { return }
         
         let title = currentWebsite?.name ?? "未知网站"
-        let category = "网页截屏"
+        let category = "网页截屏".localized()
         let websiteURL = currentWebsite?.url ?? ""
         
         let history = TCScreenshotHistoryModel(
@@ -445,7 +445,7 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
             // 保存截屏历史记录
             saveScreenshotHistory(images)
             let title = currentWebsite?.name ?? "未知网站"
-            let category = "网页截屏"
+            let category = "网页截屏".localized()
             let websiteURL = currentWebsite?.url ?? ""
             
             let history = TCScreenshotHistoryModel(

@@ -194,7 +194,7 @@ class TCAboutViewController: BaseViewController {
         copyrightLabel.textColor = UIColor.hexString("#999999")
         copyrightLabel.textAlignment = .center
         copyrightLabel.numberOfLines = 0
-        copyrightLabel.text = "© 2025 TransComic. All rights reserved.\n感谢您的使用！"
+        copyrightLabel.text = "© 2025 TransComic. All rights reserved.\n感谢您的使用！".localized()
         contentView.addSubview(copyrightLabel)
         
         copyrightLabel.snp.makeConstraints { make in
@@ -210,7 +210,7 @@ class TCAboutViewController: BaseViewController {
         
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"
-        versionLabel.text = "版本 \(version) (\(build))"
+        versionLabel.text = "v \(version) (\(build))"
         
         descriptionLabel.text = "一款强大的翻译工具，支持动漫翻译、网页翻译、图片识别等多种功能，为用户提供便捷的翻译体验。".localized()
     }

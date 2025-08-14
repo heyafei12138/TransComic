@@ -32,7 +32,7 @@ class HomeViewController: BaseViewController {
         imageView.contentMode = .scaleAspectFit
         
         let titleLabel = UILabel()
-        titleLabel.text = "暂无历史记录"
+        titleLabel.text = "暂无历史记录".localized()
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         titleLabel.textColor = UIColor.hexString("#666666")
         titleLabel.textAlignment = .center
@@ -212,7 +212,7 @@ class HomeViewController: BaseViewController {
         
         
         // 查看更多按钮
-        moreButton.setTitle("查看更多 >", for: .normal)
+        moreButton.setTitle("查看更多 >".localized(), for: .normal)
         moreButton.setTitleColor(LmainColor, for: .normal)
         moreButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         moreButton.addTarget(self, action: #selector(moreTapped), for: .touchUpInside)

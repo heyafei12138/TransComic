@@ -14,7 +14,7 @@ class TCWebTransExample {
     static func addWebTransToTabBar(tabBarController: UITabBarController) {
         let webTransVC = TCWebTransModule.getHomeViewController()
         webTransVC.tabBarItem = UITabBarItem(
-            title: "网页翻译",
+            title: "网页翻译".localized(),
             image: UIImage(systemName: "globe"),
             selectedImage: UIImage(systemName: "globe.fill")
         )
@@ -26,7 +26,7 @@ class TCWebTransExample {
     /// 示例：在设置页面中添加网页翻译入口
     static func addWebTransToSettings(settingsViewController: UIViewController) {
         let webTransButton = UIButton(type: .system)
-        webTransButton.setTitle("网页翻译", for: .normal)
+        webTransButton.setTitle("网页翻译".localized(), for: .normal)
         webTransButton.addTarget(self, action: #selector(openWebTrans), for: .touchUpInside)
         
         // 添加到设置页面

@@ -27,7 +27,7 @@ class TCScreenshotHistoryListViewController: BaseViewController {
     }()
     
     private lazy var categorySegmentControl: UISegmentedControl = {
-        let categories = ["全部"] + TCScreenshotHistoryManager.shared.getCategories()
+        let categories = ["全部".localized()] + TCScreenshotHistoryManager.shared.getCategories()
         let segmentControl = UISegmentedControl(items: categories)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.backgroundColor = UIColor.white
@@ -80,7 +80,7 @@ class TCScreenshotHistoryListViewController: BaseViewController {
         view.layer.shadowRadius = 4
         
         let totalLabel = UILabel()
-        totalLabel.text = "总计"
+        totalLabel.text = "总计".localized()
         totalLabel.font = UIFont.systemFont(ofSize: 14)
         totalLabel.textColor = UIColor.gray
         
@@ -89,7 +89,7 @@ class TCScreenshotHistoryListViewController: BaseViewController {
         totalCountLabel.textColor = mainColor
         
         let storageLabel = UILabel()
-        storageLabel.text = "存储"
+        storageLabel.text = "存储".localized()
         storageLabel.font = UIFont.systemFont(ofSize: 14)
         storageLabel.textColor = UIColor.gray
         
@@ -133,7 +133,7 @@ class TCScreenshotHistoryListViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "截屏历史"
+        title = "截屏历史".localized()
         setupNavigationBar()
         setupUI()
     }

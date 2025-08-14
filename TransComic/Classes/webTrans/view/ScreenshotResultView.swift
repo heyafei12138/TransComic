@@ -26,9 +26,9 @@ class ScreenshotResultView: UIView {
     private let containerView = UIView()
     private let titleLabel = UILabel()
     
-    private lazy var translateButton = createActionButton(title: "立即翻译", imageName: "globe")
-    private lazy var viewButton = createActionButton(title: "查看图片", imageName: "photo.on.rectangle")
-    private lazy var saveButton = createActionButton(title: "保存到相册", imageName: "square.and.arrow.down")
+    private lazy var translateButton = createActionButton(title: "立即翻译".localized(), imageName: "globe")
+    private lazy var viewButton = createActionButton(title: "查看图片".localized(), imageName: "photo.on.rectangle")
+    private lazy var saveButton = createActionButton(title: "保存到相册".localized(), imageName: "square.and.arrow.down")
 
     // MARK: - 初始化
     init(imageCount: Int) {
@@ -55,7 +55,7 @@ class ScreenshotResultView: UIView {
             make.width.equalTo(280)
         }
 
-        titleLabel.text = "截屏完成，共截取 \(imageCount) 张图片"
+        titleLabel.text = "截屏完成，共截取".localized() + "\(imageCount)" + "张图片".localized()
         titleLabel.font = .boldSystemFont(ofSize: 16)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
@@ -153,11 +153,11 @@ class ScreenshotResultView: UIView {
 
         // 点击事件处理
         switch title {
-        case "立即翻译":
+        case "立即翻译".localized():
             button.addTarget(self, action: #selector(didTapTranslate), for: .touchUpInside)
-        case "查看图片":
+        case "查看图片".localized():
             button.addTarget(self, action: #selector(didTapView), for: .touchUpInside)
-        case "保存到相册":
+        case "保存到相册".localized():
             button.addTarget(self, action: #selector(didTapSave), for: .touchUpInside)
         default:
             break

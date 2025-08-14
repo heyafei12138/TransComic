@@ -30,7 +30,7 @@ class TCURLInputView: UIView {
     
     private lazy var urlTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "请输入网址"
+        textField.placeholder = "请输入网址".localized()
         textField.font = UIFont.systemFont(ofSize: 16)
         textField.textColor = black
         textField.keyboardType = .URL
@@ -43,7 +43,7 @@ class TCURLInputView: UIView {
     
     private lazy var goButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("前往", for: .normal)
+        button.setTitle("前往".localized(), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.backgroundColor = mainColor

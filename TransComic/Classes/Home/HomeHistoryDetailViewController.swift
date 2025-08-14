@@ -80,7 +80,7 @@ class HomeHistoryDetailViewController: BaseViewController {
     
     private lazy var actionButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("保存到相册", for: .normal)
+        button.setTitle("保存到相册".localized(), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         button.backgroundColor = mainColor
@@ -102,7 +102,7 @@ class HomeHistoryDetailViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "历史详情"
+        title = "历史详情".localized()
         setupNavigationBar()
         loadData()
         setupUI()
@@ -175,7 +175,7 @@ class HomeHistoryDetailViewController: BaseViewController {
     }
     
     private func setupNavigationBar() {
-        customNav.setRightButton(title: "删除", titleColor: UIColor.red)
+        customNav.setRightButton(title: "删除".localized(), titleColor: UIColor.red)
         customNav.rightButtonAction = { [weak self] in
             self?.showDeleteConfirmation()
         }

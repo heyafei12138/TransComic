@@ -57,20 +57,20 @@ class TransSettinginfoVC: BaseViewController  {
         
         // 构建内容
         attributedString.append(NSAttributedString(
-            string: "快捷翻译使用指南\n",
+            string: "快捷翻译使用指南".localized() + "\n",
             attributes: titleAttributes))
         
         // 方式一
         attributedString.append(NSAttributedString(
-            string: "方式一：双击背面触发（推荐）",
+            string: "方式一：双击背面触发（推荐）".localized(),
             attributes: subtitleAttributes))
         
         let method1Steps = [
-            "1. 打开 系统设置 → 辅助功能 → 触控 → 轻点背面",
-            "2. 选择 轻点两下",
-            "3. 下拉到底部 快捷指令 区域",
-            "4. 勾选 translationComic",
-            "5. 使用：双击手机背面两下启动屏翻"
+            "1. 打开 系统设置 → 辅助功能 → 触控 → 轻点背面".localized(),
+            "2. 选择 轻点两下".localized(),
+            "3. 下拉到底部 快捷指令 区域".localized(),
+            "4. 勾选 translationComic".localized(),
+            "5. 使用：双击手机背面两下启动屏翻".localized()
         ]
         
         method1Steps.forEach {
@@ -83,16 +83,16 @@ class TransSettinginfoVC: BaseViewController  {
         
         // 方式二
         attributedString.append(NSAttributedString(
-            string: "\n方式二：辅助触控按钮触发",
+            string: "\n" + "方式二：辅助触控按钮触发".localized(),
             attributes: subtitleAttributes))
         
         let method2Steps = [
-            "1. 打开 系统设置 → 辅助功能 → 触控 → 辅助触控",
-            "2. 开启 辅助触控 开关",
-            "3. 选择 轻点一下",
-            "4. 下拉到底部 快捷指令 区域",
-            "5. 勾选 translationComic",
-            "6. 使用：单击屏幕悬浮按钮启动屏翻"
+            "1. 打开 系统设置 → 辅助功能 → 触控 → 辅助触控".localized(),
+            "2. 开启 辅助触控 开关".localized(),
+            "3. 选择 轻点一下".localized(),
+            "4. 下拉到底部 快捷指令 区域".localized(),
+            "5. 勾选 translationComic".localized(),
+            "6. 使用：单击屏幕悬浮按钮启动屏翻".localized()
         ]
         
         method2Steps.forEach {
@@ -105,15 +105,15 @@ class TransSettinginfoVC: BaseViewController  {
         
         // 关键提示
         attributedString.append(NSAttributedString(
-            string: "\n重要提示：\n",
+            string: "\n" + "重要提示：".localized() + "\n",
             attributes: subtitleAttributes))
         
         attributedString.append(NSAttributedString(
-            string: "• 确保快捷指令名称为 ",
+            string: "• 确保快捷指令名称为 ".localized(),
             attributes: stepAttributes))
         
         let nameHighlight = NSAttributedString(
-            string: "translationComic",
+            string: "translationComic".localized(),
             attributes: highlightAttributes)
         attributedString.append(nameHighlight)
         

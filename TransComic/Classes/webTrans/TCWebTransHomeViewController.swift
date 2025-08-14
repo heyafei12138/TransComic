@@ -36,21 +36,21 @@ class TCWebTransHomeViewController: BaseViewController {
     
     private lazy var commonWebsitesView: TCWebsitesSectionView = {
         let view = TCWebsitesSectionView()
-        view.title = "常用网址"
+        view.title = "常用网址".localized()
         view.delegate = self
         return view
     }()
     
     private lazy var favoriteWebsitesView: TCWebsitesSectionView = {
         let view = TCWebsitesSectionView()
-        view.title = "收藏网址"
+        view.title = "收藏网址".localized()
         view.delegate = self
         return view
     }()
     
     private lazy var historyWebsitesView: TCWebsitesSectionView = {
         let view = TCWebsitesSectionView()
-        view.title = "历史记录"
+        view.title = "历史记录".localized()
         view.delegate = self
         return view
     }()
@@ -64,7 +64,7 @@ class TCWebTransHomeViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "网页翻译"
+        title = "网页翻译".localized()
         setupUI()
         setupData()
     }

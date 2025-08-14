@@ -55,7 +55,7 @@ class TCScreenshotHistoryDetailViewController: BaseViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "截屏详情"
+        title = "截屏详情".localized()
         loadImages()
         setupNavigationBar()
         setupUI()
@@ -88,7 +88,7 @@ class TCScreenshotHistoryDetailViewController: BaseViewController {
     }
     
     private func setupNavigationBar() {
-        customNav.setRightButton(title: "删除", titleColor: UIColor.red)
+        customNav.setRightButton(title: "删除".localized(), titleColor: UIColor.red)
         customNav.rightButtonAction = { [weak self] in
             self?.showDeleteConfirmation()
         }
@@ -107,9 +107,9 @@ class TCScreenshotHistoryDetailViewController: BaseViewController {
     
     // MARK: - Actions
     private func showDeleteConfirmation() {
-        let alert = UIAlertController(title: "删除记录", message: "确定要删除这条截屏记录吗？", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
-        alert.addAction(UIAlertAction(title: "删除", style: .destructive) { [weak self] _ in
+        let alert = UIAlertController(title: "删除记录".localized(), message: "确定要删除这条截屏记录吗？".localized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "取消".localized(), style: .cancel))
+        alert.addAction(UIAlertAction(title: "删除".localized(), style: .destructive) { [weak self] _ in
             self?.deleteHistory()
         })
         present(alert, animated: true)
