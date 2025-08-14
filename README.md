@@ -1,2 +1,0 @@
-# TransComic
-TransComic

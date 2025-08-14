@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AppTrackingTransparency
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -70,7 +71,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            if #available(iOS 14.0, *) {
+                ATTrackingManager.requestTrackingAuthorization { status in
+                    if status == .authorized {
+                        
+                    } else {
+                        
+                    }
+                }
+            }else {
+                
+            }
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
