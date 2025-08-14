@@ -7,7 +7,7 @@
 */
 
 // MARK: - Common
-"Cancel" = "Cancel";
+"取消" = "Cancel";
 "确定" = "OK";
 "重试" = "Retry";
 "清除" = "Clear";
@@ -198,3 +198,4 @@
 "查看图片" = "View Image";
 "请输入网址" = "Please enter a URL";
 "前往" = "Go";
+"暂无数据" = "No Data";           // 英文

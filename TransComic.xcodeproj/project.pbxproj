@@ -229,6 +229,7 @@
 				it,
 				de,
 				ko,
+				"zh-HK",
 			);
 			mainGroup = BDF423862E4209C100C04BFD;
 			minimizedProjectReferenceProxies = 1;

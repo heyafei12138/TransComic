@@ -34,7 +34,7 @@ class TCScreenshotHistoryCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textColor = black
-        label.numberOfLines = 2
+        label.numberOfLines = 1
         label.lineBreakMode = .byTruncatingTail
         return label
     }()
@@ -144,7 +144,7 @@ class TCScreenshotHistoryCell: UITableViewCell {
     func configure(with history: TCScreenshotHistoryModel) {
         titleLabel.text = history.title
         categoryLabel.text = history.category
-        imageCountLabel.text = "\(history.imageCount) 张图片"
+        imageCountLabel.text = "\(history.imageCount)" + "张图片".localized()
         
         // 格式化日期
         let formatter = DateFormatter()

@@ -16,7 +16,7 @@ class TCScreenshotHistoryDetailViewController: BaseViewController {
     // MARK: - UI Components
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.sectionInset = UIEdgeInsets.zero
@@ -144,7 +144,7 @@ extension TCScreenshotHistoryDetailViewController: UICollectionViewDelegateFlowL
 // MARK: - UICollectionViewDelegate
 extension TCScreenshotHistoryDetailViewController: UICollectionViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        let page = Int(scrollView.contentOffset.y / scrollView.bounds.height)
         pageLabel.text = "\(page + 1) / \(images.count)"
     }
 }

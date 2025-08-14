@@ -23,7 +23,7 @@ class TCScreenshotHistorySectionView: UIView {
         let view = UIView()
         
         let titleLabel = UILabel()
-        titleLabel.text = "截屏历史"
+        titleLabel.text = "截屏历史".localized()
         titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         titleLabel.textColor = black
         
@@ -73,7 +73,7 @@ class TCScreenshotHistorySectionView: UIView {
         imageView.contentMode = .scaleAspectFit
         
         let label = UILabel()
-        label.text = "暂无截屏历史"
+        label.text = "暂无截屏历史".localized()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.gray
         label.textAlignment = .center

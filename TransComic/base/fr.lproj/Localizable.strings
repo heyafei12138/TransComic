@@ -7,7 +7,8 @@
 */
 
 // MARK: - Général
-"Cancel" = "Annuler";
+
+"取消" = "Annuler";
 "确定" = "OK";
 "重试" = "Réessayer";
 "清除" = "Effacer";
@@ -27,54 +28,65 @@
 "失败" = "Échec";
 "错误" = "Erreur";
 "警告" = "Avertissement";
-"提示" = "Conseil";
+"提示" = "Astuce";
 "加载中" = "Chargement";
 "请稍候" = "Veuillez patienter";
 "正在处理" = "Traitement en cours";
 
-// MARK: - Navigation et titres
+// MARK: - Navigation and Titles
 "设置" = "Paramètres";
 "关于我们" = "À propos de nous";
 "历史记录" = "Historique";
-"快捷翻译漫画" = "Traduction rapide de bandes dessinées";
-"网页生番翻译" = "Traduction de pages web";
-"快捷翻译使用指南" = "Guide d'utilisation de la traduction rapide";
-"一键快捷翻译漫画" = "Traduction de bandes dessinées en un clic";
+"快捷翻译漫画" = "Traduction Rapide de Manga";
+"网页生番翻译" = "Traduction de Page Web";
+"快捷翻译使用指南" = "Guide de Traduction Rapide";
+"一键快捷翻译漫画" = "Traduction Manga en Un Clic";
+"截屏" = "Capture d'écran";
+"截屏详情" = "Détails Capture";
+"截屏历史" = "Historique Capture";
+"网页翻译" = "Traduction Web";
+"常用网址" = "Sites Web Courants";
+"收藏网址" = "Sites Préférés";
+"收藏" = "Favori";
+"已收藏" = "Favori ajouté";
+"未收藏" = "Non ajouté aux favoris";
+"未知网站" = "Site Inconnu";
 
-// MARK: - Descriptions de fonctionnalités
-"一键翻译动漫台词，支持多语言。" = "Traduction en un clic des dialogues d'anime avec support multilingue.";
-"网页直达，轻松愉悦。" = "Accès direct aux pages web, simple et agréable.";
-"设置快捷指令，轻击手机背面/单击触控实现全屏幕翻译，一次设置永久畅享。" = "Configurez des raccourcis, tapez sur l'arrière de votre téléphone ou cliquez sur le contrôle tactile pour une traduction plein écran. Configurez une fois, profitez pour toujours.";
-"一款强大的翻译工具，支持动漫翻译、网页翻译、图片识别等多种功能，为用户提供便捷的翻译体验。" = "Un outil de traduction puissant prenant en charge la traduction d'anime, la traduction web, la reconnaissance d'images et plus encore, offrant aux utilisateurs une expérience de traduction pratique.";
-"一款强大的翻译工具，支持动漫翻译、网页翻译等功能" = "Un outil de traduction puissant prenant en charge la traduction d'anime, la traduction web et d'autres fonctionnalités";
+// MARK: - Feature Descriptions
+"一键翻译动漫台词，支持多语言。" = "Traduction d’anime en un clic, support multilingue.";
+"网页直达，轻松愉悦。" = "Accès direct au web, facile et agréable.";
+"设置快捷指令，轻击手机背面/单击触控实现全屏幕翻译，一次设置永久畅享。" = "Configurez les raccourcis, tapez l’arrière du téléphone ou utilisez le contrôle tactile pour traduction plein écran. Configurez une fois, profitez toujours.";
+"一款强大的翻译工具，支持动漫翻译、网页翻译、图片识别等多种功能，为用户提供便捷的翻译体验。" = "Outil de traduction puissant, supporte la traduction anime, web et reconnaissance d’image, offrant une expérience de traduction pratique.";
+"一款强大的翻译工具，支持动漫翻译、网页翻译等功能" = "Outil de traduction puissant, supporte la traduction anime et web.";
+"下载地址：" = "Lien de téléchargement:";
 
-// MARK: - Paramètres
-"应用语言" = "Langue de l'application";
-"语言设置" = "Paramètres de langue";
-"目标语言:" = "Langue cible :";
+// MARK: - Settings
+"应用语言" = "Langue de l'App";
+"语言设置" = "Paramètres de Langue";
+"目标语言:" = "Langue cible:";
 "选择目标语言" = "Sélectionner la langue cible";
 "选择语言" = "Sélectionner la langue";
 "分享给好友" = "Partager avec des amis";
-"推荐给朋友使用" = "Recommandé aux amis";
-"给个好评" = "Évaluez-nous";
-"在App Store评分" = "Évaluez sur l'App Store";
-"意见反馈" = "Commentaires";
+"推荐给朋友使用" = "Recommander à des amis";
+"给个好评" = "Donnez une note";
+"在App Store评分" = "Évaluer sur l'App Store";
+"意见反馈" = "Retour d’expérience";
 "帮助我们改进" = "Aidez-nous à nous améliorer";
-"隐私政策" = "Politique de confidentialité";
-"了解隐私保护" = "En savoir plus sur la protection de la vie privée";
+"隐私政策" = "Politique de Confidentialité";
+"了解隐私保护" = "En savoir plus sur la confidentialité";
 "用户协议" = "Conditions d'utilisation";
-"使用条款说明" = "Conditions d'utilisation";
-"清除缓存" = "Effacer le cache";
-"确定要清除所有缓存数据吗？" = "Êtes-vous sûr de vouloir effacer toutes les données du cache ?";
-"正在清除缓存" = "Effacement du cache en cours";
+"使用条款说明" = "Termes et conditions";
+"清除缓存" = "Vider le cache";
+"确定要清除所有缓存数据吗？" = "Voulez-vous vraiment effacer toutes les données du cache ?";
+"正在清除缓存" = "Suppression du cache en cours";
 "请稍候..." = "Veuillez patienter...";
-"清除完成" = "Effacement terminé";
-"清除失败" = "Échec de l'effacement";
+"清除完成" = "Suppression terminée";
+"清除失败" = "Échec de la suppression";
 "缓存清除成功" = "Cache effacé avec succès";
 
-// MARK: - Noms de langues
-"简体中文" = "Chinois simplifié";
-"中文繁体" = "Chinois traditionnel";
+// MARK: - Language Names
+"简体中文" = "Chinois Simplifié";
+"中文繁体" = "Chinois Traditionnel";
 "英语" = "Anglais";
 "日语" = "Japonais";
 "韩语" = "Coréen";
@@ -90,76 +102,100 @@
 "俄语" = "Russe";
 "泰语" = "Thaï";
 "越南语" = "Vietnamien";
-"日本語" = "日本語";
-"한국어" = "한국어";
+"日本語" = "Japonais";
+"한국어" = "Coréen";
 "Français" = "Français";
-"Deutsch" = "Deutsch";
-"Español" = "Español";
-"Italiano" = "Italiano";
+"Deutsch" = "Allemand";
+"Español" = "Espagnol";
+"Italiano" = "Italien";
 
-// MARK: - Configuration des raccourcis
+// MARK: - Shortcut Setup
 "我该怎么做" = "Que dois-je faire ?";
 "方式一：双击背面触发（推荐）" = "Méthode 1 : Double tap arrière (Recommandé)";
-"方式二：辅助触控按钮触发" = "Méthode 2 : Déclenchement par bouton tactile d'assistance";
+"方式二：辅助触控按钮触发" = "Méthode 2 : Bouton Assistive Touch";
 "重要提示：" = "Notes importantes :";
 "启动快捷翻译" = "Démarrer la traduction rapide";
 
-// MARK: - Étapes des raccourcis
-"1. 打开 系统设置 → 辅助功能 → 触控 → 轻点背面" = "1. Ouvrir Paramètres système → Accessibilité → Tactile → Tap arrière";
-"2. 选择 轻点两下" = "2. Sélectionner Double tap";
-"3. 下拉到底部 快捷指令 区域" = "3. Faire défiler vers le bas jusqu'à la section Raccourcis";
-"4. 勾选 translationComic" = "4. Cocher translationComic";
-"5. 使用：双击手机背面两下启动屏翻" = "5. Utilisation : Double tap sur l'arrière du téléphone pour démarrer la traduction d'écran";
-"1. 打开 系统设置 → 辅助功能 → 触控 → 辅助触控" = "1. Ouvrir Paramètres système → Accessibilité → Tactile → Touche d'assistance";
-"2. 开启 辅助触控 开关" = "2. Activer la Touche d'assistance";
-"3. 选择 轻点一下" = "3. Sélectionner Tap simple";
-"4. 下拉到底部 快捷指令 区域" = "4. Faire défiler vers le bas jusqu'à la section Raccourcis";
-"5. 勾选 translationComic" = "5. Cocher translationComic";
-"6. 使用：单击屏幕悬浮按钮启动屏翻" = "6. Utilisation : Taper sur le bouton flottant de l'écran pour démarrer la traduction";
+// MARK: - Shortcut Steps
+"1. 打开 系统设置 → 辅助功能 → 触控 → 轻点背面" = "1. Ouvrez Paramètres → Accessibilité → Toucher → Tap arrière";
+"2. 选择 轻点两下" = "2. Sélectionnez Double Tap";
+"3. 下拉到底部 快捷指令 区域" = "3. Faites défiler jusqu’à la section Raccourcis";
+"4. 勾选 translationComic" = "4. Cochez translationComic";
+"5. 使用：双击手机背面两下启动屏翻" = "5. Utilisation : double tap arrière pour lancer traduction écran";
+"1. 打开 系统设置 → 辅助功能 → 触控 → 辅助触控" = "1. Ouvrez Paramètres → Accessibilité → Toucher → Assistive Touch";
+"2. 开启 辅助触控 开关" = "2. Activez Assistive Touch";
+"3. 选择 轻点一下" = "3. Sélectionnez Tap simple";
+"4. 下拉到底部 快捷指令 区域" = "4. Faites défiler jusqu’à la section Raccourcis";
+"5. 勾选 translationComic" = "5. Cochez translationComic";
+"6. 使用：单击屏幕悬浮按钮启动屏翻" = "6. Utilisation : appuyez sur le bouton flottant pour lancer traduction";
 "• 确保快捷指令名称为 " = "• Assurez-vous que le nom du raccourci est ";
 
-// MARK: - Historique
+// MARK: - History
 "暂无历史记录" = "Aucun historique";
 "查看更多 >" = "Voir plus >";
-"快捷指令翻译" = "Traduction de raccourci";
-"指令翻译" = "Traduction de commande";
+"快捷指令翻译" = "Traduction Raccourci";
+"指令翻译" = "Traduction Commande";
+"暂无截屏历史记录" = "Aucun historique de capture";
+"总计" = "Total";
+"存储" = "Stockage";
+"全部" = "Tout";
+"清空" = "Vider";
+"删除记录" = "Supprimer l’entrée";
+"确定要删除这条截屏记录吗？" = "Voulez-vous vraiment supprimer cette capture ?";
 
-// MARK: - Traduction web
-"无效的URL地址" = "Adresse URL invalide";
+// MARK: - Web Translation
+"无效的URL地址" = "URL invalide";
 "加载失败" = "Échec du chargement";
 "页面加载失败：" = "Échec du chargement de la page : ";
+"截屏失败" = "Échec de la capture";
+"保存成功" = "Enregistrement réussi";
+"图片已保存到相册" = "Image enregistrée dans l’album";
+"截屏已保存到相册" = "Capture enregistrée dans l’album";
+"保存失败" = "Échec de l’enregistrement";
+"未知错误" = "Erreur inconnue";
 
-// MARK: - Lié aux images
-"没有相册权限" = "Aucune permission de bibliothèque photo";
-"截图失败: " = "Échec de la capture d'écran : ";
-"截图成功" = "Capture d'écran réussie";
+// MARK: - Image Related
+"没有相册权限" = "Pas de permission pour l’album";
+"截图失败: " = "Échec de la capture : ";
+"截图成功" = "Capture réussie";
 
-// MARK: - Page À propos
-"开发者信息" = "Informations sur les développeurs";
-"TransComic 团队\n致力于为用户提供优质的翻译体验" = "Équipe TransComic\nEngagée à offrir aux utilisateurs une expérience de traduction de qualité";
+// MARK: - About Page
+"开发者信息" = "Informations Développeur";
+"TransComic 团队\n致力于为用户提供优质的翻译体验" = "Équipe TransComic\nEngagée à fournir une expérience de traduction de qualité";
 "联系我们" = "Contactez-nous";
-"邮箱：" = "E-mail : ";
+"邮箱：" = "Email : ";
 "版本 " = "Version ";
-"© 2025 TransComic. All rights reserved.\n感谢您的使用！" = "© 2025 TransComic. Tous droits réservés.\nMerci de votre utilisation !";
+"© 2025 TransComic. All rights reserved.\n感谢您的使用！" = "© 2025 TransComic. Tous droits réservés.\nMerci pour votre utilisation !";
 
-// MARK: - Partage et commentaires
-"请描述您遇到的问题或建议：\n\n" = "Veuillez décrire le problème rencontré ou les suggestions :\n\n";
-"无法发送邮件" = "Impossible d'envoyer l'e-mail";
-"请检查邮件设置或直接联系我们" = "Veuillez vérifier les paramètres d'e-mail ou nous contacter directement";
+// MARK: - Share and Feedback
+"请描述您遇到的问题或建议：\n\n" = "Décrivez le problème ou suggestion :\n\n";
+"无法发送邮件" = "Impossible d’envoyer l’email";
+"请检查邮件设置或直接联系我们" = "Vérifiez les paramètres de messagerie ou contactez-nous directement";
 
-// MARK: - Autres
+// MARK: - Others
 "translationComic" = "translationComic";
 "分享成功" = "Partage réussi";
 "找不到本地视频文件" = "Fichier vidéo local introuvable";
+"张" = "pcs";
+
 "立即开始" = "Commencer maintenant";
-"正在截屏中…（点击取消）" = "Capture d'écran en cours… (cliquer pour annuler)";
-"截屏完成，共截取" = "Capture terminée, total de";
-"张图片" = "images";
-"翻译中，请等待..." = "Traduction en cours, veuillez patienter...";
+"正在截屏中…（点击取消）" = "Capture d’écran… (Tapez pour annuler)";
+"截屏完成，共截取" = "Capture terminée, total capturé";
+"张图片" = "Images";
+"翻译中，请等待..." = "Traduction en cours, veuillez patienter…";
 "清空历史记录" = "Vider l’historique";
-"确定要清空所有截屏历史记录吗？此操作不可恢复。" = "Voulez-vous vraiment effacer tout l’historique des captures d’écran ? Cette action est irréversible.";
-"删除记录" = "Supprimer l'entrée";
-"确定要删除这条截屏记录吗？" = "Voulez-vous supprimer cette capture d’écran ?";
+"确定要清空所有截屏历史记录吗？此操作不可恢复。" = "Voulez-vous vraiment vider tout l’historique des captures ? Cette action est irréversible.";
+"删除记录" = "Supprimer l’entrée";
+"确定要删除这条截屏记录吗？" = "Voulez-vous vraiment supprimer cette capture ?";
 "通用设置" = "Paramètres généraux";
-"应用相关" = "À propos de l’application";
+"应用相关" = "À propos de l’App";
 "关于" = "À propos";
+"网页截屏" = "Capture Web";
+"分类" = "Catégorie";
+"历史详情" = "Détails de l’historique";
+"保存到相册" = "Enregistrer dans l’album";
+"立即翻译" = "Traduire maintenant";
+"查看图片" = "Voir l’image";
+"请输入网址" = "Entrez l’URL";
+"前往" = "Aller à";
+"暂无数据" = "Aucune donnée";

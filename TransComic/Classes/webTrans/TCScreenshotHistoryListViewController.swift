@@ -48,7 +48,7 @@ class TCScreenshotHistoryListViewController: BaseViewController {
         imageView.contentMode = .scaleAspectFit
         
         let label = UILabel()
-        label.text = "暂无截屏历史记录"
+        label.text = "暂无截屏历史记录".localized()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.gray
         label.textAlignment = .center
@@ -209,7 +209,7 @@ class TCScreenshotHistoryListViewController: BaseViewController {
         let totalCount = TCScreenshotHistoryManager.shared.getTotalImageCount()
         let storageSize = TCScreenshotHistoryManager.shared.getTotalStorageSize()
         
-        totalCountLabel.text = "\(totalCount) 张"
+        totalCountLabel.text = "\(totalCount)"
         storageSizeLabel.text = TCScreenshotHistoryManager.shared.formatStorageSize(storageSize)
     }
     

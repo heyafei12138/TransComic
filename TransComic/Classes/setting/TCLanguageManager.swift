@@ -36,7 +36,8 @@ class TCLanguageManager {
     // MARK: - Available Languages
     var availableLanguages: [(name: String, code: String, flag: String)] {
         return [
-            ("简体中文", "zh", "🇨🇳"),
+            ("简体中文", "zh-Hans", "🇨🇳"),
+            ("繁體中文", "zh-HK", "🇨🇳"),
             ("English", "en", "🇺🇸"),
             ("日本語", "ja", "🇯🇵"),
             ("한국어", "ko", "🇰🇷"),

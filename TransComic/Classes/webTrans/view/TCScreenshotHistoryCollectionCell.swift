@@ -127,7 +127,7 @@ class TCScreenshotHistoryCollectionCell: UICollectionViewCell {
     func configure(with history: TCScreenshotHistoryModel) {
         titleLabel.text = history.title
         categoryLabel.text = history.category
-        imageCountLabel.text = "\(history.imageCount)张"
+        imageCountLabel.text = "\(history.imageCount)" + "张".localized()
         
         // 格式化日期
         let formatter = DateFormatter()
