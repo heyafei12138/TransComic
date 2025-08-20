@@ -92,9 +92,9 @@ final class TCSubscribeViewController: BaseViewController {
         linksContainer.addSubview(termsButton)
         linksContainer.addSubview(restoreButton)
         
-        weeklyOption.configure(title: SubscriptionProduct.weekly.displayName, subtitle: "限时优惠".localized(), priceText: "--", isSelected: true)
-        monthlyOption.configure(title: SubscriptionProduct.monthly.displayName, subtitle: nil, priceText: "--", isSelected: false)
-        yearlyOption.configure(title: SubscriptionProduct.yearly.displayName, subtitle: nil, priceText: "--", isSelected: false)
+        weeklyOption.configure(title: SubscriptionProduct.weekly.displayName, subtitle: "限时优惠".localized(), priceText: "$5.99", isSelected: true)
+        monthlyOption.configure(title: SubscriptionProduct.monthly.displayName, subtitle: nil, priceText: "$19.99", isSelected: false)
+        yearlyOption.configure(title: SubscriptionProduct.yearly.displayName, subtitle: nil, priceText: "$199.99", isSelected: false)
         
         backgroundImageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -151,6 +151,10 @@ final class TCSubscribeViewController: BaseViewController {
         monthlyOption.onTap = { [weak self] in self?.select(product: .monthly) }
         yearlyOption.onTap = { [weak self] in self?.select(product: .yearly) }
         
+        weeklyOption.addTarget(self, action: #selector(weeklyTapped), for: .touchUpInside)
+        monthlyOption.addTarget(self, action: #selector(monthlyTapped), for: .touchUpInside)
+        yearlyOption.addTarget(self, action: #selector(yearlyTapped), for: .touchUpInside)
+
         payButton.addTarget(self, action: #selector(payTapped), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(openPrivacy), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(openTerms), for: .touchUpInside)
@@ -184,6 +188,10 @@ final class TCSubscribeViewController: BaseViewController {
         monthlyOption.setSelected(product == .monthly)
         yearlyOption.setSelected(product == .yearly)
     }
+    
+    @objc private func weeklyTapped() { select(product: .weekly) }
+    @objc private func monthlyTapped() { select(product: .monthly) }
+    @objc private func yearlyTapped() { select(product: .yearly) }
     
     @objc private func payTapped() {
         IAPManager.shared.purchase(productId: selectedProductId) { [weak self] success, message in
@@ -269,6 +277,8 @@ private final class SubscriptionOptionView: UIControl {
         container.addSubview(titleLabel)
         container.addSubview(subLabel)
         container.addSubview(priceLabel)
+        // 关闭内部容器交互，保证事件传递到 UIControl
+        container.isUserInteractionEnabled = false
         
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -290,6 +300,9 @@ private final class SubscriptionOptionView: UIControl {
         }
         
         addTarget(self, action: #selector(tapped), for: .touchUpInside)
+        // 增大可点区域，避免细小控件难点到
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
+        addGestureRecognizer(tap)
     }
     
     func configure(title: String, subtitle: String?, priceText: String, isSelected: Bool) {
@@ -311,6 +324,10 @@ private final class SubscriptionOptionView: UIControl {
     
     @objc private func tapped() {
         onTap?()
+    }
+    @objc private func tapGesture() {
+        onTap?()
+        sendActions(for: .touchUpInside)
     }
 }
 

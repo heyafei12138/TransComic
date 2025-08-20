@@ -112,15 +112,15 @@ class HomeViewController: BaseViewController {
             make.width.height.equalTo(32)
         }
         // VIP按钮
-//        vipButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-//        vipButton.tintColor = UIColor.white
-//        vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
-//        view.addSubview(vipButton)
-//        vipButton.snp.makeConstraints { make in
-//            make.centerY.equalTo(settingButton)
-//            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
-//            make.width.height.equalTo(32)
-//        }
+        vipButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        vipButton.tintColor = UIColor.white
+        vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
+        view.addSubview(vipButton)
+        vipButton.snp.makeConstraints { make in
+            make.centerY.equalTo(settingButton)
+            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
+            make.width.height.equalTo(32)
+        }
         
         
         ImageView.image = UIImage(named: "katong_top")
