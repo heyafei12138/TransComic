@@ -126,7 +126,7 @@ class HomeViewController: BaseViewController {
         ImageView.image = UIImage(named: "katong_top")
         view.addSubview(ImageView)
         ImageView.snp.makeConstraints { make in
-            make.top.equalTo(settingButton.snp.bottom).offset(-20)
+            make.top.equalTo(settingButton.snp.bottom).offset(kisIphoneX ? -20 : -40)
             make.left.equalToSuperview().offset(20)
             make.width.equalTo(kScreenW - 100)
             make.height.equalTo((kScreenW - 100)/1.8)
@@ -145,9 +145,9 @@ class HomeViewController: BaseViewController {
             QuickTranTapped()
         }
         card1.snp.makeConstraints { make in
-            make.top.equalTo(ImageView.snp.bottom).offset(20)
+            make.top.equalTo(ImageView.snp.bottom).offset(kisIphoneX ? 20 : 0)
             make.left.right.equalToSuperview().inset(16)
-            make.height.equalTo(160)
+            make.height.equalTo(kisIphoneX ?160: 150)
         }
         
         // 第二个卡片
@@ -158,7 +158,7 @@ class HomeViewController: BaseViewController {
         card2.snp.makeConstraints { make in
             make.top.equalTo(card1.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(16)
-            make.height.equalTo(160)
+            make.height.equalTo(kisIphoneX ?160: 130)
         }
         card2.onTap = { [weak self] in
             guard let self = self else { return }

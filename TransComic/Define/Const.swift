@@ -33,6 +33,7 @@ let kTabbarHeightWithSafe = jk_kTabbarFrameH
 // MARK: - 除去导航条和tabbar的高度
 let kNormalViewHieght = kScreenH - kNavHeight - kTabbarHeightWithSafe
 let kNormalViewNoTabHeight = kScreenH - kNavHeight - kBottomSafeHeight
+let kisIphoneX = kScreenH > 667
 
 let kWindow = UIApplication.jk.keyWindow
 let kTopVC = UIViewController.jk.topViewController()
