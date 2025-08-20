@@ -290,8 +290,8 @@ class HomeViewController: BaseViewController {
         navigationController?.pushViewController(settingVC, animated: true)
     }
     @objc private func vipTapped() {
-        // 跳转VIP页
-        print("VIP按钮点击")
+        let vc = TCSubscribeViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     @objc private func card1StartTapped() {
         // 动漫翻译入口

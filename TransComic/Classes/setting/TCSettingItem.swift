@@ -16,6 +16,7 @@ enum TCSettingType {
     case privacy
     case terms
     case about
+    case vip
 }
 
 struct TCSettingItem {

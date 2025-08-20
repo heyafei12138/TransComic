@@ -1,3 +1,14 @@
+"订阅会员" = "Subscribe";
+"立即支付" = "Pay Now";
+"隐私政策" = "Privacy Policy";
+"用户协议" = "Terms of Service";
+"恢复购买" = "Restore Purchases";
+"购买成功" = "Purchase Succeeded";
+"购买失败" = "Purchase Failed";
+"恢复成功" = "Restore Succeeded";
+"恢复失败" = "Restore Failed";
+"限时优惠" = "Limited Offer";
+"返回" = "Back";
 /* 
   Localizable.strings
   TransComic
