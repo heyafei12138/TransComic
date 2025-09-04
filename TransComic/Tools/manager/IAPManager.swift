@@ -1,0 +1,101 @@
+//
+//  IAPManager.swift
+//  TransComic
+//
+//  Created by Assistant on 2025/08/20.
+//
+
+import Foundation
+import StoreKit
+import SwiftyStoreKit
+
+public enum SubscriptionProduct: String, CaseIterable {
+    case weekly = "com.transcomic.sub.weekly"
+    case monthly = "com.transcomic.sub.monthly"
+    case yearly = "com.transcomic.sub.yearly"
+    
+    var displayName: String {
+        switch self {
+        case .weekly: return "周订阅".localized()
+        case .monthly: return "月订阅".localized()
+        case .yearly: return "年订阅".localized()
+        }
+    }
+}
+
+public final class IAPManager {
+    public static let shared = IAPManager()
+    private init() {}
+
+    public func start() {
+        SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+            for purchase in purchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+                default:
+                    break
+                }
+            }
+        }
+    }
+
+    public func fetchProductsInfo(_ ids: [SubscriptionProduct], completion: @escaping ([String: SKProduct]) -> Void) {
+        let setIds = Set(ids.map { $0.rawValue })
+        SwiftyStoreKit.retrieveProductsInfo(setIds) { result in
+            var map: [String: SKProduct] = [:]
+            for product in result.retrievedProducts {
+                map[product.productIdentifier] = product
+            }
+            completion(map)
+        }
+    }
+
+    public func purchase(productId: String, completion: @escaping (Bool, String?) -> Void) {
+        SwiftyStoreKit.purchaseProduct(productId, atomically: true) { result in
+            switch result {
+            case .success(let purchase):
+                if purchase.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+                StorageManager.shared.isvipUser = true
+                completion(true, nil)
+            case .error(let error):
+                completion(false, error.localizedDescription)
+            }
+        }
+    }
+
+    public func restorePurchases(completion: @escaping (Bool, String?) -> Void) {
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+            if results.restoreFailedPurchases.count > 0 {
+                let message = results.restoreFailedPurchases.map { "\($0.0.localizedDescription)" }.joined(separator: "\n")
+                completion(false, message)
+            } else if results.restoredPurchases.count > 0 {
+                for purchase in results.restoredPurchases where purchase.needsFinishTransaction {
+                    SwiftyStoreKit.finishTransaction(purchase.transaction)
+                }
+                StorageManager.shared.isvipUser = true
+                completion(true, nil)
+            } else {
+                completion(false, "暂无可恢复的购买".localized())
+            }
+        }
+    }
+}
+
+public extension SKProduct {
+    var localizedPriceString: String {
+        if let price = self.localizedPrice {
+            return price
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = self.priceLocale
+        return formatter.string(from: self.price) ?? ""
+    }
+}
+
+

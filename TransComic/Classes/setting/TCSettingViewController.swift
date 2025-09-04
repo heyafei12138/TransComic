@@ -107,6 +107,9 @@ class TCSettingViewController: BaseViewController {
             showTermsOfService()
         case .about:
             showAboutUs()
+        case .vip:
+            let vc = TCSubscribeViewController()
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

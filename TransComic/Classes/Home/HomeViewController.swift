@@ -112,21 +112,21 @@ class HomeViewController: BaseViewController {
             make.width.height.equalTo(32)
         }
         // VIP按钮
-//        vipButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-//        vipButton.tintColor = UIColor.white
-//        vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
-//        view.addSubview(vipButton)
-//        vipButton.snp.makeConstraints { make in
-//            make.centerY.equalTo(settingButton)
-//            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
-//            make.width.height.equalTo(32)
-//        }
+        vipButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        vipButton.tintColor = UIColor.white
+        vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
+        view.addSubview(vipButton)
+        vipButton.snp.makeConstraints { make in
+            make.centerY.equalTo(settingButton)
+            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
+            make.width.height.equalTo(32)
+        }
         
         
         ImageView.image = UIImage(named: "katong_top")
         view.addSubview(ImageView)
         ImageView.snp.makeConstraints { make in
-            make.top.equalTo(settingButton.snp.bottom).offset(-20)
+            make.top.equalTo(settingButton.snp.bottom).offset(kisIphoneX ? -20 : -40)
             make.left.equalToSuperview().offset(20)
             make.width.equalTo(kScreenW - 100)
             make.height.equalTo((kScreenW - 100)/1.8)
@@ -145,9 +145,9 @@ class HomeViewController: BaseViewController {
             QuickTranTapped()
         }
         card1.snp.makeConstraints { make in
-            make.top.equalTo(ImageView.snp.bottom).offset(20)
+            make.top.equalTo(ImageView.snp.bottom).offset(kisIphoneX ? 20 : 0)
             make.left.right.equalToSuperview().inset(16)
-            make.height.equalTo(160)
+            make.height.equalTo(kisIphoneX ?160: 150)
         }
         
         // 第二个卡片
@@ -158,7 +158,7 @@ class HomeViewController: BaseViewController {
         card2.snp.makeConstraints { make in
             make.top.equalTo(card1.snp.bottom).offset(16)
             make.left.right.equalToSuperview().inset(16)
-            make.height.equalTo(160)
+            make.height.equalTo(kisIphoneX ?160: 130)
         }
         card2.onTap = { [weak self] in
             guard let self = self else { return }
@@ -290,8 +290,8 @@ class HomeViewController: BaseViewController {
         navigationController?.pushViewController(settingVC, animated: true)
     }
     @objc private func vipTapped() {
-        // 跳转VIP页
-        print("VIP按钮点击")
+        let vc = TCSubscribeViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     @objc private func card1StartTapped() {
         // 动漫翻译入口

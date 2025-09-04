@@ -166,9 +166,9 @@ class TransSettingVC: BaseViewController {
         playerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: item)
 
         // 容器 view
-        let width = kScreenW - 160
+        let width = kScreenW - (kisIphoneX ? 160 : 260)
         let height = width / 3 * 5
-        let frame = CGRect(x: 80, y: kNavHeight + 15, width: width, height: height)
+        let frame = CGRect(x: kisIphoneX ? 80 : 130, y: kNavHeight + 15, width: width, height: height)
         
         let container = UIView(frame: frame)
         container.backgroundColor = .black
