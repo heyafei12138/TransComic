@@ -171,7 +171,12 @@ class HomeViewController: BaseViewController {
     }
 
     @objc private func QuickTranTapped() {
-        pushViewCon(TransSettingVC())
+        
+        
+        let vc = TCPayMemberViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
+//        pushViewCon(TransSettingVC())
        
     }
     @objc private func WebTranTapped() {
