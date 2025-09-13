@@ -10,9 +10,9 @@ import StoreKit
 import SwiftyStoreKit
 
 public enum SubscriptionProduct: String, CaseIterable {
-    case weekly = "com.transcomic.sub.weekly"
-    case monthly = "com.transcomic.sub.monthly"
-    case yearly = "com.transcomic.sub.yearly"
+    case weekly = "weekTransComic"
+    case monthly = "monthTransComic"
+    case yearly = "yearTransComic"
     
     var displayName: String {
         switch self {
@@ -50,6 +50,29 @@ public final class IAPManager {
                 map[product.productIdentifier] = product
             }
             completion(map)
+        }
+    }
+    public func fetchProductsInfo(completion: @escaping ([String: String]) -> Void) {
+        let ids = SubscriptionProduct.allCases
+        let setIds = Set(ids.map { $0.rawValue })
+        SwiftyStoreKit.retrieveProductsInfo(setIds) { result in
+            var priceMap: [String: String] = [:]
+            
+            for product in result.retrievedProducts {
+                // 使用SwiftyStoreKit提供的localizedPrice获取格式化价格
+                if let localizedPrice = product.localizedPrice {
+                    priceMap[product.productIdentifier] = localizedPrice
+                }
+            }
+            
+            // 确保所有请求的产品都有价格信息（如果没有则用占位符）
+            for id in setIds {
+                if priceMap[id] == nil {
+                    priceMap[id] = "价格无法获取" // 或设置为nil根据需求调整
+                }
+            }
+            
+            completion(priceMap)
         }
     }
 

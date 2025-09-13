@@ -39,6 +39,8 @@ class TCPayMemberViewController: BaseViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         return button
     }()
+    let priceView = TCPriceChooseView()
+
     var selectedIndex: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,24 @@ class TCPayMemberViewController: BaseViewController {
         // 3 秒后显示关闭按钮
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.closeButton.isHidden = false
+        }
+        IAPManager.shared.fetchProductsInfo {[weak self] maps in
+            guard let self = self else { return }
+            for (_, map) in maps.enumerated() {
+                if map.key == SubscriptionProduct.weekly.rawValue{
+                    priceView.updateDescription(at: 0, text: map.value)
+
+                }
+                if map.key == SubscriptionProduct.monthly.rawValue{
+                    priceView.updateDescription(at: 1, text: map.value)
+
+                }
+                if map.key == SubscriptionProduct.yearly.rawValue{
+                    priceView.updateDescription(at: 2, text: map.value)
+
+                }
+            }
+            
         }
     }
     
@@ -113,7 +133,6 @@ class TCPayMemberViewController: BaseViewController {
             make.trailing.equalToSuperview().offset(-30)
             make.height.equalTo(56)
         }
-        let priceView = TCPriceChooseView()
         priceView.backgroundColor = .clear
         view.addSubview(priceView)
         priceView.snp.makeConstraints { make in
@@ -126,6 +145,48 @@ class TCPayMemberViewController: BaseViewController {
             guard let self = self else { return }
             self.selectedIndex = index1
             
+        }
+        
+        let desLabel = UILabel()
+        view.addSubview(desLabel)
+        desLabel.text = "畅享VIP功能".localized()
+        desLabel.textColor = .white
+        desLabel.font = middleFont(fontSize: 14)
+        desLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        desLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(priceView.snp.top).offset(-40)
+            make.centerX.equalToSuperview().offset(10)
+            make.width.lessThanOrEqualTo(kScreenW - 80)
+
+        }
+        
+        let iconView = UIImageView()
+        view.addSubview(iconView)
+        iconView.image = UIImage(named: "recommit_white")
+        iconView.snp.makeConstraints { make in
+            make.centerY.equalTo(desLabel)
+            make.right.equalTo(desLabel.snp.left).offset(-2)
+            make.width.height.equalTo(24)
+        }
+        
+        let desLabel2 = UILabel()
+        view.addSubview(desLabel2)
+        desLabel2.text = "没有广告，清爽体验".localized()
+        desLabel2.textColor = .white
+        desLabel2.font = middleFont(fontSize: 14)
+        desLabel2.font = UIFont.boldSystemFont(ofSize: 16)
+        desLabel2.snp.makeConstraints { make in
+            make.bottom.equalTo(desLabel.snp.top).offset(-20)
+            make.left.right.equalTo(desLabel)
+        }
+        
+        let iconView2 = UIImageView()
+        view.addSubview(iconView2)
+        iconView2.image = UIImage(named: "recommit_white")
+        iconView2.snp.makeConstraints { make in
+            make.centerY.equalTo(desLabel2)
+            make.right.equalTo(desLabel2.snp.left).offset(-2)
+            make.width.height.equalTo(24)
         }
         
  
