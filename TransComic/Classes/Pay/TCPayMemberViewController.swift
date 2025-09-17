@@ -53,24 +53,28 @@ class TCPayMemberViewController: BaseViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.closeButton.isHidden = false
         }
-        IAPManager.shared.fetchProductsInfo {[weak self] maps in
-            guard let self = self else { return }
-            for (_, map) in maps.enumerated() {
-                if map.key == SubscriptionProduct.weekly.rawValue{
-                    priceView.updateDescription(at: 0, text: map.value)
-
-                }
-                if map.key == SubscriptionProduct.monthly.rawValue{
-                    priceView.updateDescription(at: 1, text: map.value)
-
-                }
-                if map.key == SubscriptionProduct.yearly.rawValue{
-                    priceView.updateDescription(at: 2, text: map.value)
-
-                }
-            }
-            
-        }
+        IAPManager.shared.getGoodsInfo()
+//        IAPManager.shared.fetchProductsInfo {[weak self] maps in
+//            guard let self = self else { return }
+//            for (_, map) in maps.enumerated() {
+//                if map.key == SubscriptionProduct.weekly.rawValue{
+//                    priceView.updateDescription(at: 0, text: map.value)
+//
+//                }
+//                if map.key == SubscriptionProduct.monthly.rawValue{
+//                    priceView.updateDescription(at: 1, text: map.value)
+//
+//                }
+//                if map.key == SubscriptionProduct.yearly.rawValue{
+//                    priceView.updateDescription(at: 2, text: map.value)
+//
+//                }
+//            }
+//            
+//        }
+        priceView.updateDescription(at: 0, text: "$3.99")
+        priceView.updateDescription(at: 1, text: "$9.99")
+        priceView.updateDescription(at: 2, text: "$29.99")
     }
     
     private func setupGifBackground() {

@@ -75,38 +75,22 @@ public final class IAPManager {
             completion(priceMap)
         }
     }
+    func getGoodsInfo() {
+        if !SwiftyStoreKit.canMakePayments {
+            print("Your device is not able or allowed to make payments!")
+            return
+        }
+        let StoreAllProductIds = ["weekTransComic","monthTransComic", "yearTransComic"]
 
-    public func purchase(productId: String, completion: @escaping (Bool, String?) -> Void) {
-        SwiftyStoreKit.purchaseProduct(productId, atomically: true) { result in
-            switch result {
-            case .success(let purchase):
-                if purchase.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(purchase.transaction)
-                }
-                StorageManager.shared.isvipUser = true
-                completion(true, nil)
-            case .error(let error):
-                completion(false, error.localizedDescription)
-            }
+        SwiftyStoreKit.retrieveProductsInfo(.init(StoreAllProductIds)) { result in
+            let products = result.retrievedProducts
+            let invalidProductIds = result.invalidProductIDs
+            print("Products: \(products)")
+            print("Invalid product identifiers: \(invalidProductIds)")
         }
     }
 
-    public func restorePurchases(completion: @escaping (Bool, String?) -> Void) {
-        SwiftyStoreKit.restorePurchases(atomically: true) { results in
-            if results.restoreFailedPurchases.count > 0 {
-                let message = results.restoreFailedPurchases.map { "\($0.0.localizedDescription)" }.joined(separator: "\n")
-                completion(false, message)
-            } else if results.restoredPurchases.count > 0 {
-                for purchase in results.restoredPurchases where purchase.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(purchase.transaction)
-                }
-                StorageManager.shared.isvipUser = true
-                completion(true, nil)
-            } else {
-                completion(false, "暂无可恢复的购买".localized())
-            }
-        }
-    }
+   
 }
 
 public extension SKProduct {

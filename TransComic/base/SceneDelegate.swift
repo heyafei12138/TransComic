@@ -16,10 +16,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
        
         guard let win = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: win)
-        window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
-        window?.makeKeyAndVisible()
-        baseSetup()
+//        if !UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
+            let onboardingVC = GuiderVC()
+            self.window?.rootViewController = onboardingVC
+            self.window?.makeKeyAndVisible()
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            KLPayManager.shared.getGoodsInfo()
+
+//        } else {
+//            window = UIWindow(windowScene: win)
+//            window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+//            window?.makeKeyAndVisible()
+//            baseSetup()
+//            KLPayManager.shared.restore(loading: false)
+//
+//        }
+       
     }
     
     func baseSetup() {

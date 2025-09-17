@@ -112,15 +112,15 @@ class HomeViewController: BaseViewController {
             make.width.height.equalTo(32)
         }
         // VIP按钮
-        vipButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        vipButton.setImage(UIImage(named: "vip_icon1"), for: .normal)
         vipButton.tintColor = UIColor.white
         vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
-        view.addSubview(vipButton)
-        vipButton.snp.makeConstraints { make in
-            make.centerY.equalTo(settingButton)
-            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
-            make.width.height.equalTo(32)
-        }
+//        view.addSubview(vipButton)
+//        vipButton.snp.makeConstraints { make in
+//            make.centerY.equalTo(settingButton)
+//            make.trailing.equalTo(settingButton.snp.leading).offset(-16)
+//            make.width.height.equalTo(32)
+//        }
         
         
         ImageView.image = UIImage(named: "katong_top")
@@ -173,10 +173,10 @@ class HomeViewController: BaseViewController {
     @objc private func QuickTranTapped() {
         
         
-        let vc = TCPayMemberViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        self.present(vc, animated: true)
-//        pushViewCon(TransSettingVC())
+//        let vc = TCPayMemberViewController()
+//        vc.modalPresentationStyle = .overFullScreen
+//        self.present(vc, animated: true)
+        pushViewCon(TransSettingVC())
        
     }
     @objc private func WebTranTapped() {
@@ -295,8 +295,11 @@ class HomeViewController: BaseViewController {
         navigationController?.pushViewController(settingVC, animated: true)
     }
     @objc private func vipTapped() {
-        let vc = TCSubscribeViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let vc = TCPayMemberViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
+//        let vc = TCSubscribeViewController()
+//        navigationController?.pushViewController(vc, animated: true)
     }
     @objc private func card1StartTapped() {
         // 动漫翻译入口

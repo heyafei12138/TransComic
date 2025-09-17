@@ -194,28 +194,28 @@ final class TCSubscribeViewController: BaseViewController {
     @objc private func yearlyTapped() { select(product: .yearly) }
     
     @objc private func payTapped() {
-        IAPManager.shared.purchase(productId: selectedProductId) { [weak self] success, message in
-            DispatchQueue.main.async {
-                if success {
-                    ProgressHUD.showSuccess("购买成功".localized())
-                    self?.navigationController?.popViewController(animated: true)
-                } else {
-                    ProgressHUD.showError(message ?? "购买失败".localized())
-                }
-            }
-        }
+//        IAPManager.shared.purchase(productId: selectedProductId) { [weak self] success, message in
+//            DispatchQueue.main.async {
+//                if success {
+//                    ProgressHUD.showSuccess("购买成功".localized())
+//                    self?.navigationController?.popViewController(animated: true)
+//                } else {
+//                    ProgressHUD.showError(message ?? "购买失败".localized())
+//                }
+//            }
+//        }
     }
     
     @objc private func restorePurchases() {
-        IAPManager.shared.restorePurchases { success, message in
-            DispatchQueue.main.async {
-                if success {
-                    ProgressHUD.showSuccess("恢复成功".localized())
-                } else {
-                    ProgressHUD.showError(message ?? "恢复失败".localized())
-                }
-            }
-        }
+//        IAPManager.shared.restorePurchases { success, message in
+//            DispatchQueue.main.async {
+//                if success {
+//                    ProgressHUD.showSuccess("恢复成功".localized())
+//                } else {
+//                    ProgressHUD.showError(message ?? "恢复失败".localized())
+//                }
+//            }
+//        }
     }
     
     @objc private func openPrivacy() {

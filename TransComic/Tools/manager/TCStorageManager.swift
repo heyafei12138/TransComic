@@ -14,7 +14,17 @@ class StorageManager: NSObject {
     @Storage(key: "isFirstBoot", defaultValue: true)
     var isFirstBoot:Bool
     
-    //是否是会员
-    @Storage(key: "isvipUser", defaultValue: true)
-    var isvipUser:Bool
+  
+    //购买过期时间戳(秒)
+    @Storage(key: "vipExpirationTimestamp", defaultValue: 0)
+    var vipExpirationTimestamp:Int
+    
+    //是否享受vip
+    var isVipValid:Bool {
+        //获取当前时间戳
+        let timeInterval = Date().timeIntervalSince1970
+        let currTime = Int(timeInterval)
+//        return true
+        return (vipExpirationTimestamp > currTime)
+    }
 }

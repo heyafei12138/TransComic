@@ -6,7 +6,48 @@
 //
 
 import Foundation
+import StoreKit
+import Toast_Swift
 
 
 let TCGroupID = "group.TranslationComic"
 let TCAppID = "6749008967"
+public let StoreShareKey: String = "0bfc94c6823c410fa04c2ac2d90408f9"
+
+//延迟执行
+func delayGCD (timeInval:CGFloat, completion: (() -> Void)? = nil) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + timeInval) {
+        completion!()
+    }
+}
+
+func Toast(_ message: String, position: ToastPosition = .center) {
+    DispatchQueue.main.async {
+        kWindow?.makeToast(message, duration: 2 , position: position)
+    }
+}
+
+func Loading() {
+    DispatchQueue.main.async {
+        kWindow?.isUserInteractionEnabled = false
+        kWindow?.makeToastActivity(.center)
+    }
+}
+
+func HideLoading() {
+    DispatchQueue.main.async {
+        kWindow?.isUserInteractionEnabled = true
+        kWindow?.hideToastActivity()
+    }
+}
+func requestAppReview() {
+    if #available(iOS 14.0, *) {
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: scene)
+        } else {
+            SKStoreReviewController.requestReview()
+        }
+    } else {
+        SKStoreReviewController.requestReview()
+    }
+}

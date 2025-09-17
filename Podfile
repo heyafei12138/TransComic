@@ -12,6 +12,7 @@ target 'comic' do
 #  pod 'SwiftyJSON'     # JSON解析
   pod 'SwiftyUserDefaults'
   pod 'SwiftyStoreKit'
+  pod 'Toast-Swift'
 
   pod 'lottie-ios'
   pod 'Localize-Swift', '~> 3.2'
