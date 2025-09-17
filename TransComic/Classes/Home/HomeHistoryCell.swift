@@ -18,6 +18,7 @@ class HomeHistoryCell: UITableViewCell {
     }
     
     private func setupUI() {
+        selectionStyle = .none
         iconView.contentMode = .scaleAspectFit
         contentView.addSubview(iconView)
         iconView.translatesAutoresizingMaskIntoConstraints = false
