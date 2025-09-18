@@ -206,7 +206,9 @@ class TCPayMemberViewController: BaseViewController {
     }
     
     @objc private func payTapped() {
-        print("💰 点击支付按钮")
-        // TODO: 支付逻辑
+        
+        KLPayManager.shared.purchaseProduct(StoreAllProductIds[selectedIndex]) {
+            self.closeTapped()
+        }
     }
 }

@@ -122,6 +122,8 @@ class KLPayManager: NSObject {
                     }
                 }
             case .error:
+                HideLoading()
+
                 Toast("Cancel Payment")
 
                 
@@ -158,6 +160,8 @@ class KLPayManager: NSObject {
                     }
                 } else {
                     if loading {
+                        HideLoading()
+
                         Toast("Restore failed")
                         
                     }
