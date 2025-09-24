@@ -178,7 +178,7 @@ private final class OptionItemView: UIView {
         
         card.addSubview(titleLabel)
         card.addSubview(descLabel)
-        card.addSubview(noteLabel)
+//        card.addSubview(noteLabel)
         
         // 卡片内约束
         card.snp.makeConstraints { make in
@@ -200,12 +200,12 @@ private final class OptionItemView: UIView {
             make.top.equalTo(titleLabel.snp.bottom).offset(6)
             make.left.right.equalTo(titleLabel)
         }
-        noteLabel.snp.makeConstraints { make in
-            make.top.equalTo(descLabel.snp.bottom).offset(6)
-            make.left.right.equalTo(titleLabel)
-            make.bottom.equalToSuperview().inset(10)
-            make.height.equalTo(20)
-        }
+//        noteLabel.snp.makeConstraints { make in
+//            make.top.equalTo(descLabel.snp.bottom).offset(6)
+//            make.left.right.equalTo(titleLabel)
+//            make.bottom.equalToSuperview().inset(10)
+//            make.height.equalTo(20)
+//        }
         
         // ribbon（仅第2/3项）
 //        if style == .ribbonCard || style == .thrCard {

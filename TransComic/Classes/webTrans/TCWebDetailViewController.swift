@@ -437,7 +437,17 @@ extension TCWebDetailViewController: TCScreenshotManagerDelegate {
     }
     //
     private func startTranslation(_ images: [UIImage]) {
-        
+        let userDefaults = UserDefaults(suiteName: TCGroupID) ?? .standard
+
+        var freeCount = userDefaults.integer(forKey: "freeUserNum")
+        if !StorageManager.shared.isVipValid,freeCount > 3{
+            let vc = TCPayMemberViewController()
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+            return
+        }
+        freeCount += 1
+        userDefaults.set(freeCount, forKey: "freeUserNum")
         let vc = TCImageLoadingVC()
         vc.images = images
         vc.transResults = {[weak self] images in

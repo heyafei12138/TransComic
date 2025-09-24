@@ -19,12 +19,18 @@ class StorageManager: NSObject {
     @Storage(key: "vipExpirationTimestamp", defaultValue: 0)
     var vipExpirationTimestamp:Int
     
+    
     //是否享受vip
     var isVipValid:Bool {
         //获取当前时间戳
         let timeInterval = Date().timeIntervalSince1970
         let currTime = Int(timeInterval)
+        let userDefaults = UserDefaults(suiteName: TCGroupID) ?? .standard
+
+        let vip = (vipExpirationTimestamp > currTime)
+        userDefaults.set(vip, forKey: "isVipValid")
+        userDefaults.synchronize()
 //        return true
-        return (vipExpirationTimestamp > currTime)
+        return vip
     }
 }

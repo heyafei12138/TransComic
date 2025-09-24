@@ -210,6 +210,19 @@ class TransSettingVC: BaseViewController {
         segue.perform()
     }
     @objc func startTapped() {
+        let userDefaults = UserDefaults(suiteName: TCGroupID) ?? .standard
+
+        var freeCount = userDefaults.integer(forKey: "freeUserNum")
+        if !StorageManager.shared.isVipValid,freeCount > 3{
+            let vc = TCPayMemberViewController()
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: true)
+            return
+        }
+        freeCount += 1
+        userDefaults.set(freeCount, forKey: "freeUserNum")
+        
+        
         let urlStr = "https://www.icloud.com/shortcuts/c1286d028f224e9aaa682f70aeaad62b"
         guard let url = URL(string: urlStr) else {
             return

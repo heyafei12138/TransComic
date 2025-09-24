@@ -32,7 +32,7 @@ class TCPayMemberViewController: BaseViewController {
     
     private let payButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("立即支付", for: .normal)
+        button.setTitle("开始使用", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = mainColor
         button.layer.cornerRadius = 24

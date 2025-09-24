@@ -46,8 +46,16 @@ struct Trans: AppIntent, CustomIntentMigratedAppIntent, PredictableIntent {
         guard let uiImage = UIImage(data: parameter.data) else {
             throw NSError(domain: "ScreenIntent", code: 2, userInfo: [NSLocalizedDescriptionKey: "Invalid image data"])
         }
-        let userDefaults = UserDefaults(suiteName: TCGroupID) ?? .standard
 
+        let userDefaults = UserDefaults(suiteName: TCGroupID) ?? .standard
+        let isvip = userDefaults.bool(forKey: "isVipValid")
+        var freeCount = userDefaults.integer(forKey: "freeUserNum")
+        if !isvip,freeCount > 3{
+            throw NSError(domain: "TransComic", code: 2, userInfo: [NSLocalizedDescriptionKey: "You can get more times in the App"])
+
+        }
+        freeCount += 1
+        userDefaults.set(freeCount, forKey: "freeUserNum")
         let result = try  await withCheckedThrowingContinuation { continuation in
             translateImage(uiImage) { result in
                 Task {

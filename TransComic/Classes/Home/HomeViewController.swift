@@ -116,6 +116,7 @@ class HomeViewController: BaseViewController {
         vipButton.setImage(UIImage(named: "vip_icon1"), for: .normal)
         vipButton.tintColor = UIColor.white
         vipButton.addTarget(self, action: #selector(vipTapped), for: .touchUpInside)
+        
         view.addSubview(vipButton)
         vipButton.snp.makeConstraints { make in
             make.centerY.equalTo(settingButton)
