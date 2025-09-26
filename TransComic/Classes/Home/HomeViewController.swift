@@ -173,7 +173,8 @@ class HomeViewController: BaseViewController {
     }
 
     @objc private func QuickTranTapped() {
-        
+        AppReviewHelper.shared.recordButtonClick()
+
         
 //        let vc = TCPayMemberViewController()
 //        vc.modalPresentationStyle = .overFullScreen
@@ -182,6 +183,8 @@ class HomeViewController: BaseViewController {
        
     }
     @objc private func WebTranTapped() {
+        AppReviewHelper.shared.recordButtonClick()
+
         let webTransVC = TCWebTransModule.getHomeViewController()
         pushViewCon(webTransVC)
        
