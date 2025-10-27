@@ -12,7 +12,7 @@ import Toast_Swift
 
 let TCGroupID = "group.TranslationComic"
 let TCAppID = "6749008967"
-public let StoreShareKey: String = "0bfc94c6823c410fa04c2ac2d90408f9"
+public let StoreShareKey: String = "fad7f0c870914ada978f48c5edd485e9"
 
 //延迟执行
 func delayGCD (timeInval:CGFloat, completion: (() -> Void)? = nil) {

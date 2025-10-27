@@ -121,9 +121,9 @@ class KLPayManager: NSObject {
                         
                     }
                 }
-            case .error:
+            case .error(let error):
                 HideLoading()
-
+                print(error.localizedDescription)
                 Toast("Cancel Payment")
 
                 

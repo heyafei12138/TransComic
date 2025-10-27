@@ -299,7 +299,7 @@ class GuiderVC: UIViewController,UIScrollViewDelegate {
     }
     
     @objc func privacyButtonClick() {
-        let safariLink = "https://sleep.leaphealth.fitness/privacypolicy.html"
+        let safariLink = "https://docs.qq.com/doc/DVFRYSEhZb2ZyekpG"
         if let url = URL(string: safariLink) {
            let safariViewController = SFSafariViewController(url: url)
            present(safariViewController, animated: true, completion: nil)

@@ -12,6 +12,7 @@ import SnapKit
 import UIKit
 import SnapKit
 import ImageIO
+import SafariServices
 
 class TCPayMemberViewController: BaseViewController {
     
@@ -38,6 +39,35 @@ class TCPayMemberViewController: BaseViewController {
         button.layer.cornerRadius = 24
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         return button
+    }()
+    let terms_button = {
+        let  button = UIButton(type: .custom)
+        let underlineAttributes: [NSAttributedString.Key: Any] = [
+                   .underlineStyle: NSUnderlineStyle.single.rawValue,
+                   .foregroundColor: UIColor(red: 0.749, green: 0.753, blue: 0.765, alpha: 1),
+                   .font: sysfont(size: 13)
+               ]
+
+        let attributedString = NSAttributedString(string: "Terms".localized(), attributes: underlineAttributes)
+
+       button.setAttributedTitle(attributedString, for: .normal)
+        button.contentHorizontalAlignment = .left
+        return  button
+    }()
+    
+    let privacy_button = {
+        let  button = UIButton(type: .custom)
+        let underlineAttributes: [NSAttributedString.Key: Any] = [
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .foregroundColor: UIColor(red: 0.749, green: 0.753, blue: 0.765, alpha: 1),
+            .font: sysfont(size: 13)
+        ]
+
+        let attributedString = NSAttributedString(string: "Privacy".localized(), attributes: underlineAttributes)
+
+       button.setAttributedTitle(attributedString, for: .normal)
+        button.contentHorizontalAlignment = .right
+        return  button
     }()
     let priceView = TCPriceChooseView()
 
@@ -134,8 +164,22 @@ class TCPayMemberViewController: BaseViewController {
         payButton.snp.makeConstraints { make in
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-30)
             make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.trailing.equalToSuperview().offset(-40)
             make.height.equalTo(56)
+        }
+        view.addSubview(terms_button)
+        terms_button.snp.makeConstraints { make in
+            make.left.equalTo(payButton).offset(0)
+            make.height.equalTo(18)
+            make.top.equalTo(payButton.snp.bottom).offset(15)
+            
+        }
+        
+        view.addSubview(privacy_button)
+        privacy_button.snp.makeConstraints { make in
+            make.right.equalTo(payButton).offset(0)
+            make.height.equalTo(18)
+            make.top.equalTo(payButton.snp.bottom).offset(15)
         }
         priceView.backgroundColor = .clear
         view.addSubview(priceView)
@@ -199,6 +243,9 @@ class TCPayMemberViewController: BaseViewController {
     private func setupActions() {
         closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
         payButton.addTarget(self, action: #selector(payTapped), for: .touchUpInside)
+        
+        terms_button.addTarget(self, action: #selector(termsButtonClick), for: .touchUpInside)
+        privacy_button.addTarget(self, action: #selector(privacyButtonClick), for: .touchUpInside)
     }
     
     @objc private func closeTapped() {
@@ -209,6 +256,21 @@ class TCPayMemberViewController: BaseViewController {
         
         KLPayManager.shared.purchaseProduct(StoreAllProductIds[selectedIndex]) {
             self.closeTapped()
+        }
+    }
+    @objc func termsButtonClick() {
+        let safariLink = "https://docs.qq.com/doc/DVEZZb0dKRkRqa09x"
+        if let url = URL(string: safariLink) {
+           let safariViewController = SFSafariViewController(url: url)
+           present(safariViewController, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func privacyButtonClick() {
+        let safariLink = "https://docs.qq.com/doc/DVFRYSEhZb2ZyekpG"
+        if let url = URL(string: safariLink) {
+           let safariViewController = SFSafariViewController(url: url)
+           present(safariViewController, animated: true, completion: nil)
         }
     }
 }
