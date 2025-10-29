@@ -69,6 +69,20 @@ class TCPayMemberViewController: BaseViewController {
         button.contentHorizontalAlignment = .right
         return  button
     }()
+    let restore_button = {
+        let  button = UIButton(type: .custom)
+        let underlineAttributes: [NSAttributedString.Key: Any] = [
+            .underlineStyle: NSUnderlineStyle.single.rawValue,
+            .foregroundColor: UIColor(red: 0.749, green: 0.753, blue: 0.765, alpha: 1),
+            .font: sysfont(size: 13)
+        ]
+
+        let attributedString = NSAttributedString(string: "Restore".localized(), attributes: underlineAttributes)
+
+       button.setAttributedTitle(attributedString, for: .normal)
+        button.contentHorizontalAlignment = .right
+        return  button
+    }()
     let priceView = TCPriceChooseView()
 
     var selectedIndex: Int = 0
@@ -181,6 +195,12 @@ class TCPayMemberViewController: BaseViewController {
             make.height.equalTo(18)
             make.top.equalTo(payButton.snp.bottom).offset(15)
         }
+        view.addSubview(restore_button)
+        restore_button.snp.makeConstraints { make in
+            make.height.equalTo(18)
+            make.top.equalTo(payButton.snp.bottom).offset(15)
+            make.centerX.equalToSuperview()
+        }
         priceView.backgroundColor = .clear
         view.addSubview(priceView)
         priceView.snp.makeConstraints { make in
@@ -243,7 +263,8 @@ class TCPayMemberViewController: BaseViewController {
     private func setupActions() {
         closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
         payButton.addTarget(self, action: #selector(payTapped), for: .touchUpInside)
-        
+        restore_button.addTarget(self, action: #selector(restoreHandel), for: .touchUpInside)
+
         terms_button.addTarget(self, action: #selector(termsButtonClick), for: .touchUpInside)
         privacy_button.addTarget(self, action: #selector(privacyButtonClick), for: .touchUpInside)
     }
@@ -251,7 +272,12 @@ class TCPayMemberViewController: BaseViewController {
     @objc private func closeTapped() {
         dismiss(animated: true, completion: nil)
     }
-    
+    @objc func restoreHandel(){
+        KLPayManager.shared.restore {
+            self.closeTapped()
+        }
+        
+    }
     @objc private func payTapped() {
         
         KLPayManager.shared.purchaseProduct(StoreAllProductIds[selectedIndex]) {
@@ -259,7 +285,7 @@ class TCPayMemberViewController: BaseViewController {
         }
     }
     @objc func termsButtonClick() {
-        let safariLink = "https://docs.qq.com/doc/DVEZZb0dKRkRqa09x"
+        let safariLink = "https://sites.google.com/view/transcomic"
         if let url = URL(string: safariLink) {
            let safariViewController = SFSafariViewController(url: url)
            present(safariViewController, animated: true, completion: nil)
@@ -267,7 +293,7 @@ class TCPayMemberViewController: BaseViewController {
     }
     
     @objc func privacyButtonClick() {
-        let safariLink = "https://docs.qq.com/doc/DVFRYSEhZb2ZyekpG"
+        let safariLink = "https://docs.qq.com/doc/DVEpCRWZoZnNncEZ6?no_promotion=1"
         if let url = URL(string: safariLink) {
            let safariViewController = SFSafariViewController(url: url)
            present(safariViewController, animated: true, completion: nil)

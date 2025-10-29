@@ -291,7 +291,7 @@ class GuiderVC: UIViewController,UIScrollViewDelegate {
         }
     }
     @objc func termsButtonClick() {
-        let safariLink = "https://docs.qq.com/doc/DVEZZb0dKRkRqa09x"
+        let safariLink = "https://sites.google.com/view/transcomic"
         if let url = URL(string: safariLink) {
            let safariViewController = SFSafariViewController(url: url)
            present(safariViewController, animated: true, completion: nil)
@@ -299,7 +299,7 @@ class GuiderVC: UIViewController,UIScrollViewDelegate {
     }
     
     @objc func privacyButtonClick() {
-        let safariLink = "https://docs.qq.com/doc/DVFRYSEhZb2ZyekpG"
+        let safariLink = "https://docs.qq.com/doc/DVEpCRWZoZnNncEZ6?no_promotion=1"
         if let url = URL(string: safariLink) {
            let safariViewController = SFSafariViewController(url: url)
            present(safariViewController, animated: true, completion: nil)
