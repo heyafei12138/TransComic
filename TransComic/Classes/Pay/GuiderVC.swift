@@ -280,7 +280,7 @@ class GuiderVC: UIViewController,UIScrollViewDelegate {
                 if priceArr.count == 2 {
                     price = priceArr[0]
                 }
-                priceLabel.text = "Enjoy all features free for 3 days, cancel anytime before renewal at \(price) per week."
+                priceLabel.text = "🔒 Secured with Apple Store.Cancel Anytime."
             }
         } else {
             

@@ -40,6 +40,15 @@ class TCPayMemberViewController: BaseViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         return button
     }()
+    let textView : UITextView = {
+        let textView = UITextView()
+        textView.isEditable = false
+        textView.backgroundColor = .clear
+        textView.text = "Subscription info:\n-Get access to all functions of the application.\n-You can turn off the auto-renewal at any time: you'll find the option to do this change to a different payment plan in the settings of your iTunes and App Store account.\n-Your account will be automatically charged for the subscription if you will not stop it before the end of the free trial.\n-The subscription is auto-renewing. You can stop the subscription at any moment;\n-Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal.".localized()
+        textView.font = sysfont(size: 13)
+        textView.textColor = .hexString("#454545")
+        return textView
+    }()
     let terms_button = {
         let  button = UIButton(type: .custom)
         let underlineAttributes: [NSAttributedString.Key: Any] = [
@@ -176,7 +185,7 @@ class TCPayMemberViewController: BaseViewController {
         }
         
         payButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-30)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-90)
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().offset(-40)
             make.height.equalTo(56)
@@ -214,7 +223,14 @@ class TCPayMemberViewController: BaseViewController {
             self.selectedIndex = index1
             
         }
-        
+        view.addSubview(textView)
+        textView.snp.makeConstraints { make in
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.top.equalTo(terms_button.snp.bottom).offset(10)
+            make.bottom.equalToSuperview()
+        }
+        textView.isEditable = false
         let desLabel = UILabel()
         view.addSubview(desLabel)
         desLabel.text = "畅享VIP功能".localized()
