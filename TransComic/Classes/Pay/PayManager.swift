@@ -13,8 +13,8 @@ import SwiftyUserDefaults
 // 声明为 var，并在运行时初始化
 
 
-public var StoreAllProductIds: [String] = ["weekTransComic", "monthTransComic", "yearTransComic"]
-public var StoreAllSubscribeProductIds: [String] = ["weekTransComic", "monthTransComic", "yearTransComic"]
+public var StoreAllProductIds: [String] = ["weekTransComicNew", "monthTransComicNew", "yearTransComicNew"]
+public var StoreAllSubscribeProductIds: [String] = ["weekTransComicNew", "monthTransComicNew", "yearTransComicNew"]
 public var StoreAllPaymentProductIds: [String] = []
 
 

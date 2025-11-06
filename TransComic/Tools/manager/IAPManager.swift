@@ -10,9 +10,9 @@ import StoreKit
 import SwiftyStoreKit
 
 public enum SubscriptionProduct: String, CaseIterable {
-    case weekly = "weekTransComic"
-    case monthly = "monthTransComic"
-    case yearly = "yearTransComic"
+    case weekly = "weekTransComicNew"
+    case monthly = "monthTransComicNew"
+    case yearly = "yearTransComicNew"
     
     var displayName: String {
         switch self {
